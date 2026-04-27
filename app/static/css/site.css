@@ -5,6 +5,7 @@
   --cnb-muted:#6b7280;
   --cnb-soft:#f7f7fb;
   --cnb-nav:#fffcc3;
+  color-scheme: light;
 }
 
 html,body{height:100%;}
