@@ -20,6 +20,12 @@ def create_app():
     )
 
     app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY", "dev-secret-change-me")
+
+    # Improve performance on Vercel by allowing aggressive caching of static assets.
+    # (Flask still serves files from /static, Vercel CDN can cache them.)
+    if os.environ.get("VERCEL"):
+        app.config["SEND_FILE_MAX_AGE_DEFAULT"] = 60 * 60 * 24 * 30  # 30 days
+
     raw_db_url = os.environ.get("DATABASE_URL", "sqlite:///local.db")
     if raw_db_url.startswith("postgres://"):
         raw_db_url = "postgresql://" + raw_db_url[len("postgres://") :]
