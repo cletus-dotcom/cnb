@@ -1,0 +1,311 @@
+{% extends "layout.html" %}
+
+{% block title %}CNB — Citizens for Nationwide Budget Reform{% endblock %}
+
+{% block content %}
+  <section class="hero-carousel">
+    <div class="hero-triptych">
+      <a href="{{ url_for('site.about') }}" class="hero-banner__link" aria-label="Open About CNB">
+        <div class="hero-triptych__inner">
+          <div class="hero-triptych__col hero-triptych__left">
+            <img
+              src="{{ url_for('static', filename='img/cnb_logo_hero.png', v=now.strftime('%Y%m%d%H%M%S')) }}"
+              class="hero-logo hero-logo--xl"
+              alt="CNB logo"
+            />
+          </div>
+          <div class="hero-triptych__col hero-triptych__center">
+            <img
+              src="{{ url_for('static', filename='img/cnb_mission-vision_text.png', v=now.strftime('%Y%m%d%H%M%S')) }}"
+              class="hero-mission hero-mission--sm"
+              alt="CNB mission and vision"
+            />
+          </div>
+          <div class="hero-triptych__col hero-triptych__right" aria-hidden="true">
+            <img
+              src="{{ url_for('static', filename='img/hero_background_cutout.png', v=now.strftime('%Y%m%d%H%M%S')) }}"
+              class="hero-right"
+              alt=""
+            />
+          </div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <section class="section pt-4 welcome-section">
+    <div class="container">
+      <div class="row g-4 align-items-center">
+        <div class="col-12">
+          <p class="kicker mb-2">Formerly CENTER for NATIONAL BUDGET</p>
+          <div class="row g-3 align-items-start">
+            <div class="col-lg-9">
+              <p class="lead text-body mb-0">
+                Welcome to the home of Citizens for Nationwide Budget Reform (CNB), a SEC-registered, non-profit, and nonpartisan organization that has
+                championed transparency, equitability, and accountability in the Philippine budget system for nearly three decades.
+                <br /><br />
+                At CNB, we believe that budget awareness is the cornerstone of good governance. While the national budget is central to our country's
+                development, a persistent gap remains in public understanding. We aim to fill this gap by serving as a dedicated platform for budget
+                literacy and citizen engagement, ensuring that public funds truly serve the people—especially those in underserved communities.
+              </p>
+            </div>
+            <div class="col-lg-3 ps-lg-4">
+              <div class="d-grid gap-2 mt-1 welcome-cta">
+                <a class="btn btn-cnb w-100" href="{{ url_for('site.about') }}">Explore CNB</a>
+                <a class="btn btn-outline-dark w-100" href="{{ url_for('site.news') }}">Read the latest</a>
+                <a class="btn btn-outline-dark w-100" href="{{ url_for('site.events') }}">Events</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section whatdo-section">
+    <div class="container">
+      <div class="d-flex align-items-end justify-content-between gap-3 flex-wrap mb-3">
+        <div>
+          <h2 class="h4 fw-semibold mb-1">What do we do</h2>
+          <p class="text-muted mb-0">CNB works through specialized centers of excellence.</p>
+        </div>
+      </div>
+
+      <div class="row g-3 justify-content-center">
+        <div class="col-md-6 col-lg-4">
+          <a
+            href="{{ url_for('site.center_research') }}"
+            class="card card-soft service-card whatdo-card pastel-5 card-link text-decoration-none text-body"
+          >
+            <img
+              src="{{ url_for('static', filename='img/whatdo-research.png', v=now.strftime('%Y%m%d%H%M%S')) }}"
+              class="whatdo-cover"
+              alt="As a Research Center"
+            />
+          </a>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <a
+            href="{{ url_for('site.center_education') }}"
+            class="card card-soft service-card whatdo-card pastel-lemon card-link text-decoration-none text-body"
+          >
+            <img
+              src="{{ url_for('static', filename='img/whatdo-education.png', v=now.strftime('%Y%m%d%H%M%S')) }}"
+              class="whatdo-cover"
+              alt="As an Education Center"
+            />
+          </a>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <a
+            href="{{ url_for('site.center_content_provider') }}"
+            class="card card-soft service-card whatdo-card pastel-content card-link text-decoration-none text-body"
+          >
+            <img
+              src="{{ url_for('static', filename='img/whatdo-content.png', v=now.strftime('%Y%m%d%H%M%S')) }}"
+              class="whatdo-cover"
+              alt="As a Content Provider"
+            />
+          </a>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <a
+            href="{{ url_for('site.center_publishing') }}"
+            class="card card-soft service-card whatdo-card pastel-publishing card-link text-decoration-none text-body"
+          >
+            <img
+              src="{{ url_for('static', filename='img/whatdo-publishing.png', v=now.strftime('%Y%m%d%H%M%S')) }}"
+              class="whatdo-cover"
+              alt="As a Publishing Center"
+            />
+          </a>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <a
+            href="{{ url_for('site.pmc') }}"
+            class="card card-soft service-card whatdo-card pastel-pmc card-link text-decoration-none text-body"
+          >
+            <img
+              src="{{ url_for('static', filename='img/whatdo-pmc.png', v=now.strftime('%Y%m%d%H%M%S')) }}"
+              class="whatdo-cover"
+              alt="As a Project Management Center"
+            />
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section comingsoon-section">
+    <div class="container">
+      <div class="d-flex align-items-end justify-content-between gap-3 flex-wrap mb-3">
+        <div>
+          <h2 class="h4 fw-semibold mb-1">Coming soon</h2>
+          <p class="text-muted mb-0">New CNB books in progress.</p>
+        </div>
+      </div>
+
+      <div class="row g-3 justify-content-center">
+        <div class="col-md-4">
+          <div class="book-tile bg-white border rounded-4 p-2 h-100">
+            <img class="w-100 rounded-3 book-tile__img" src="{{ url_for('static', filename='img/1.png', v=now.strftime('%Y%m%d%H%M%S')) }}" alt="CNB book cover (coming soon)" />
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="book-tile bg-white border rounded-4 p-2 h-100">
+            <img class="w-100 rounded-3 book-tile__img" src="{{ url_for('static', filename='img/2.png', v=now.strftime('%Y%m%d%H%M%S')) }}" alt="CNB book cover (coming soon)" />
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="book-tile bg-white border rounded-4 p-2 h-100">
+            <img class="w-100 rounded-3 book-tile__img" src="{{ url_for('static', filename='img/3.png', v=now.strftime('%Y%m%d%H%M%S')) }}" alt="CNB book cover (coming soon)" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section comingsoon-section">
+    <div class="container">
+      <div class="d-flex align-items-end justify-content-between gap-3 flex-wrap mb-3">
+        <div>
+          <h2 class="h4 fw-semibold mb-1">2027 Publications</h2>
+          <p class="text-muted mb-0">Preview of upcoming publications.</p>
+        </div>
+      </div>
+
+      <div class="row g-3 justify-content-center">
+        <div class="col-md-4">
+          <div class="book-tile bg-white border rounded-4 p-2 h-100">
+            <img class="w-100 rounded-3 book-tile__img" src="{{ url_for('static', filename='img/2027pub-1.png', v=now.strftime('%Y%m%d%H%M%S')) }}" alt="2027 publication preview" />
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="book-tile bg-white border rounded-4 p-2 h-100">
+            <img class="w-100 rounded-3 book-tile__img" src="{{ url_for('static', filename='img/2027pub-2.png', v=now.strftime('%Y%m%d%H%M%S')) }}" alt="2027 publication preview" />
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="book-tile bg-white border rounded-4 p-2 h-100">
+            <img class="w-100 rounded-3 book-tile__img" src="{{ url_for('static', filename='img/2027pub-3.png', v=now.strftime('%Y%m%d%H%M%S')) }}" alt="2027 publication preview" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-muted">
+    <div class="container">
+      <div class="d-flex align-items-end justify-content-between gap-3 flex-wrap mb-3">
+        <div>
+          <h2 class="h4 fw-semibold mb-1">Latest News</h2>
+          <p class="text-muted mb-0">Published updates, articles, and announcements.</p>
+        </div>
+        <a class="btn btn-outline-dark btn-sm" href="{{ url_for('site.news') }}">View all</a>
+      </div>
+
+      {% if latest %}
+        <div class="row g-3">
+          {% for post in latest %}
+            <div class="col-md-6 col-lg-4">
+              <a class="card h-100 card-link" href="{{ url_for('site.news_detail', slug=post.slug) }}">
+                {% if post.cover_image %}
+                  <img src="{{ post.cover_image }}" class="card-img-top" alt="{{ post.title }}" />
+                {% endif %}
+                <div class="card-body">
+                  <div class="small text-muted">{{ post.published_at.strftime("%b %d, %Y") }}</div>
+                  <h3 class="h6 mt-1 mb-2">{{ post.title }}</h3>
+                  <p class="text-muted mb-0 clamp-3">{{ post.summary or post.body[:140] ~ "…" }}</p>
+                </div>
+              </a>
+            </div>
+          {% endfor %}
+        </div>
+      {% else %}
+        <div class="p-4 bg-white border rounded-3">
+          <p class="mb-0 text-muted">No posts yet. Admin can login to publish the first update.</p>
+        </div>
+      {% endif %}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="row g-4 align-items-center">
+        <div class="col-lg-5">
+          <h2 class="h4 fw-semibold mb-2">Updates on Facebook</h2>
+          <p class="text-muted mb-0">
+            Follow CNB for announcements, events, and community updates.
+          </p>
+        </div>
+        <div class="col-lg-7">
+          <div class="phone-frame mx-lg-auto">
+            <div class="phone-screen">
+              <iframe
+                title="CNB Facebook Page"
+                src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FCNBReform&tabs=timeline&width=500&height=740&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true"
+                width="500"
+                height="740"
+                style="border:none;overflow:hidden"
+                scrolling="no"
+                frameborder="0"
+                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                allowfullscreen="true"
+              ></iframe>
+            </div>
+          </div>
+          <div class="small text-muted mt-2 text-center text-lg-start">
+            If the embed doesn’t load, check browser privacy settings or allow third‑party cookies for Facebook.
+          </div>
+        </div>
+      </div>
+
+      <div class="row g-4 align-items-center mt-2">
+        <div class="col-lg-5">
+          <h2 class="h5 fw-semibold mb-2">Videos on YouTube</h2>
+          <p class="text-muted mb-0">
+            Watch CNB content on YouTube.
+            <a class="text-decoration-none" href="https://www.youtube.com/@cnbreform" target="_blank" rel="noopener noreferrer">
+              Open channel
+            </a>
+          </p>
+        </div>
+        <div class="col-lg-7">
+          <div class="video-frame mx-lg-auto">
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/xxO3EAgzHdY?si=b7ZMRBvQqR7leQHI"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+              loading="lazy"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="cta rounded-4 p-4 p-md-5">
+        <div class="row g-3 align-items-center">
+          <div class="col-lg-8">
+            <h2 class="h4 fw-bold mb-2">Want to collaborate with CNB?</h2>
+            <p class="mb-0 text-muted">Partnerships, trainings, speaking, and custom research requests.</p>
+          </div>
+          <div class="col-lg-4 text-lg-end">
+            <a class="btn btn-cnb" href="{{ url_for('site.contact') }}">Contact us</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

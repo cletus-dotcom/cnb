@@ -1,0 +1,109 @@
+{% extends "layout.html" %}
+
+{% block title %}About — CNB{% endblock %}
+
+{% block breadcrumbs %}
+  <div class="breadcrumb-bar">
+    <div class="container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb breadcrumb--cnb mb-0 py-2">
+          <li class="breadcrumb-item">
+            <a class="text-decoration-none" href="{{ url_for('site.home') }}">Home</a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">About the Founder</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+{% endblock %}
+
+{% block content %}
+  <section class="hero-carousel">
+    <img
+      src="{{ url_for('static', filename='img/about-founder-header.png') }}"
+      alt="About the Founder and President"
+      class="w-100"
+      style="max-height: 420px; object-fit: cover; object-position: center;"
+    />
+  </section>
+
+  <section class="section pt-4 about-founder-body">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-10">
+          <h1 class="h3 fw-bold mb-3">Mr. Joseph Achacoso Rañola</h1>
+          <div class="prose">
+            <p class="text-muted">
+              Mr. Joseph Achacoso Rañola, widely known as “JR” to colleagues and peers, is a seasoned public finance expert
+              and consultant with over three decades of extensive experience in the Philippine government’s budget system
+              and public administration.
+            </p>
+
+            <p class="text-muted">
+              Mr. Rañola holds a Master’s degree in Public Administration, equipping him with a deep understanding of the
+              structural strengths and systemic challenges of the Philippine bureaucracy. Over the years, he has
+              established himself as a thought leader in budget research, fiscal policy formulation, and legislative
+              engagement. As a lecturer and resource person, he has contributed to national discourse through training
+              programs, policy briefings, and technical consultations with a wide array of stakeholders.
+            </p>
+
+            <p class="text-muted mb-2">His professional expertise spans the following key areas:</p>
+            <ul class="text-muted">
+              <li>National budget research, analysis, and policy development</li>
+              <li>Budget legislation and oversight</li>
+              <li>Local government budgeting, procurement, and accountability mechanisms</li>
+              <li>Strategic planning and executive management</li>
+              <li>Editorial and publication management</li>
+              <li>Graphic design and visual communication</li>
+              <li>Enterprise development and business incubation</li>
+              <li>Leadership in marketing strategy and stakeholder engagement</li>
+              <li>Mentoring, capacity-building, and institutional strengthening</li>
+            </ul>
+
+            <p class="text-muted">
+              A native of Jagna, Bohol, Mr. Rañola earned his Bachelor of Science in Business Administration (major in
+              Management) from the Lyceum of the Philippines University in Intramuros, Manila. He built his early career
+              in both public and private institutions, serving in various managerial and executive roles that refined his
+              multidisciplinary approach to governance and development.
+            </p>
+
+            <p class="text-muted">
+              In 2002, Mr. Rañola was appointed as a Consultant on the National Budget to members of the Supreme Court.
+              This marked the beginning of a long and distinguished advisory career, during which he provided budgetary
+              and policy guidance to senators, members of the House of Representatives, executive agencies, constitutional
+              commissions, and local government officials, as well as domestic and international investors.
+            </p>
+
+            <p class="text-muted">
+              Recognizing the need for specialized consultancy in public finance, he founded JAR Consultancy in 2003,
+              serving as President and Chief Executive Officer. His work through JAR Consultancy further deepened his
+              insights into the technical, procedural, and political dimensions of national and local budgeting processes.
+            </p>
+
+            <p class="text-muted">
+              Motivated by a strong sense of public service and a commitment to good governance, Mr. Rañola formalized his
+              long-standing advocacy for transparency, equity, and accountability in public budgeting by establishing the
+              Center for National Budget (CNB) in 2006. Originally named the Center for National Budget Legislation
+              (CNBL), the institution has evolved to become a respected resource center in the field of fiscal governance.
+              He also founded CNBL Publications, where he serves as President and Publisher, overseeing the production of
+              budget education materials used by stakeholders across the country.
+            </p>
+
+            <p class="text-muted">
+              From 2019 to 2025, Mr. Rañola served as Mayor of Jagna, Bohol, bringing his national expertise in budgeting
+              and governance to the local level. His tenure reflected his core principles of fiscal discipline,
+              participatory governance, and results-driven leadership.
+            </p>
+
+            <p class="text-muted mb-0">
+              With a career built on integrity, innovation, and public accountability, Mr. Rañola continues to lead the
+              CNB in its mission to democratize knowledge of the national budget and empower Filipinos to become active
+              participants in the country’s development.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
+

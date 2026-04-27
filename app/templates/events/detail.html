@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+
+{% block title %}{{ item.title }} — Events — CNB{% endblock %}
+
+{% block breadcrumbs %}
+  <div class="breadcrumb-bar">
+    <div class="container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb breadcrumb--cnb mb-0 py-2">
+          <li class="breadcrumb-item">
+            <a class="text-decoration-none" href="{{ url_for('site.home') }}">Home</a>
+          </li>
+          <li class="breadcrumb-item">
+            <a class="text-decoration-none" href="{{ url_for('site.events') }}">Events</a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">{{ item.title }}</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+{% endblock %}
+
+{% block content %}
+  <section class="section pt-4">
+    <div class="container">
+      <a href="{{ url_for('site.events') }}" class="small text-decoration-none">&larr; Back to Events</a>
+
+      <div class="row justify-content-center mt-3">
+        <div class="col-12 col-lg-9">
+          <article class="bg-white border rounded-4 overflow-hidden">
+            {% if item.cover_image %}
+              <img src="{{ item.cover_image }}" class="w-100" alt="{{ item.title }}" style="max-height: 360px; object-fit: cover;" />
+            {% endif %}
+            <div class="p-4 p-lg-5">
+              <div class="text-muted small mb-2">
+                {% if item.starts_at %}
+                  {{ item.starts_at.strftime("%B %d, %Y") }}
+                {% else %}
+                  {{ item.published_at.strftime("%B %d, %Y") }}
+                {% endif %}
+                {% if item.location %}
+                  <span class="text-muted">•</span> {{ item.location }}
+                {% endif %}
+              </div>
+              <h1 class="h3 fw-bold mb-2">{{ item.title }}</h1>
+              {% if item.summary %}
+                <p class="lead text-muted mb-4">{{ item.summary }}</p>
+              {% endif %}
+
+              {% if item.registration_url %}
+                <p class="mb-4">
+                  <a class="btn btn-cnb" href="{{ item.registration_url }}" target="_blank" rel="noopener noreferrer">Register / Learn more</a>
+                </p>
+              {% endif %}
+
+              <div class="content text-muted">
+                {{ item.body | safe }}
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
+

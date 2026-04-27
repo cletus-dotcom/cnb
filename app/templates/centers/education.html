@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+{% block title %}Education Center — CNB{% endblock %}
+
+{% block breadcrumbs %}
+  <section class="center-header center-header--education" aria-label="Education page header">
+    <div class="container">
+      <div class="center-header__inner">
+        <h1 class="center-header__title">
+          <small>As an</small>
+          Education Center
+        </h1>
+        <img
+          class="center-header__icon center-header__icon--3d"
+          src="{{ url_for('static', filename='img/education-logo-3d.png', v=now.strftime('%Y%m%d%H%M%S')) }}"
+          alt=""
+          aria-hidden="true"
+        />
+      </div>
+    </div>
+  </section>
+
+  <div class="breadcrumb-bar">
+    <div class="container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb breadcrumb--cnb mb-0 py-2">
+          <li class="breadcrumb-item">
+            <a class="text-decoration-none" href="{{ url_for('site.home') }}">Home</a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">Education</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+{% endblock %}
+
+{% block content %}
+  <section class="section pt-4">
+    <div class="container">
+      <h1 class="h2 fw-bold mb-2">Practical fiscal literacy for all</h1>
+      <p class="lead text-muted mb-4">
+        Grassroots empowerment—translating technical jargon into accessible education for all Filipinos.
+      </p>
+
+      <div class="row g-3">
+        <div class="col-lg-7">
+          <div class="p-4 bg-white border rounded-4 h-100">
+            <h2 class="h5 fw-semibold mb-2">What we offer</h2>
+            <ul class="text-muted mb-0">
+              <li>Workshops and learning sessions for communities</li>
+              <li>Budget explainers and simplified learning materials</li>
+              <li>Training support for organizations and institutions</li>
+              <li>Public education campaigns for transparency and accountability</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div class="p-4 service-card pastel-edu-session border rounded-4 h-100">
+            <h2 class="h6 fw-semibold mb-2">Request a session</h2>
+            <p class="text-muted mb-3">Tell us your audience and objectives—we’ll propose a learning plan.</p>
+            <a class="btn btn-cnb" href="{{ url_for('site.contact') }}">Contact the team</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
+

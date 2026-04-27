@@ -1,0 +1,191 @@
+{% extends "layout.html" %}
+
+{% block title %}Project Management Center — CNB{% endblock %}
+
+{% block breadcrumbs %}
+  <section class="center-header center-header--pmc" aria-label="Project Management page header">
+    <div class="container">
+      <div class="center-header__inner">
+        <h1 class="center-header__title">
+          <small>As a</small>
+          Project Management Center
+        </h1>
+        <img
+          class="center-header__icon center-header__icon--3d"
+          src="{{ url_for('static', filename='img/pmc-logo-3d.png', v=now.strftime('%Y%m%d%H%M%S')) }}"
+          alt=""
+          aria-hidden="true"
+        />
+      </div>
+    </div>
+  </section>
+
+  <div class="breadcrumb-bar">
+    <div class="container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb breadcrumb--cnb mb-0 py-2">
+          <li class="breadcrumb-item">
+            <a class="text-decoration-none" href="{{ url_for('site.home') }}">Home</a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">Project Management</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+{% endblock %}
+
+{% block content %}
+  <section class="section pt-4">
+    <div class="container">
+      <h1 class="h2 fw-bold mb-2">Turning Fiscal Theory into Tangible Results</h1>
+      <p class="lead text-muted mb-4">
+        The Project Management Center (PMC) is the technical heart of the Citizens for Nationwide Budget Reform (CNB).
+        While our other centers focus on research and education, the PMC is where that knowledge is applied to
+        real-world governance. We serve as a high-level technical partner, ensuring that public funds are not only
+        accounted for but are utilized through well-structured, viable, and impactful projects.
+      </p>
+
+      {% if current_user.is_authenticated %}
+        <p class="mb-4">
+          <a class="btn btn-outline-dark btn-sm" href="{{ url_for('site.dashboard_pmc_achievements') }}">Manage year-by-year reports</a>
+        </p>
+      {% endif %}
+    </div>
+  </section>
+
+  <section class="section section-muted">
+    <div class="container">
+      <h2 class="h4 fw-semibold mb-3">Service Overview</h2>
+      <p class="text-muted mb-3">
+        Our Project Management Center bridges the gap between policy and implementation. We provide specialized
+        technical assistance to two primary groups:
+      </p>
+      <div class="row g-3">
+        <div class="col-md-6">
+          <div class="p-4 service-card pastel-1 border rounded-4 h-100">
+            <h3 class="h6 fw-semibold mb-2">For National Government Offices</h3>
+            <p class="text-muted mb-0">
+              We lend our expertise to help prepare and improve project proposals, ensuring they meet the highest
+              standards of technical and fiscal rigor.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="p-4 service-card pastel-2 border rounded-4 h-100">
+            <h3 class="h6 fw-semibold mb-2">For Legislators</h3>
+            <p class="text-muted mb-0">
+              We provide a critical eye during the analysis and scrutiny of the General Appropriations Bill (GAB),
+              helping to ensure that national spending aligns with the principles of transparency and equity.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="jagna-legacy">
+    <div class="container">
+      <h2 class="h4 fw-semibold mb-2">The Jagna Legacy: A Blueprint for Local Fiscal Excellence (2019–2025)</h2>
+      <p class="text-muted mb-4">
+        This section serves as a &ldquo;Proof of Concept,&rdquo; demonstrating how CNB&rsquo;s principles of budget reform were
+        successfully implemented on the ground during the CNB Founder&rsquo;s tenure as Mayor of Jagna, Bohol.
+      </p>
+
+      <h3 class="h5 fw-semibold mb-2">Governance in Action: Year-by-Year Achievements</h3>
+      <p class="text-muted mb-3">
+        Click on each year to view key projects and download official LGU Jagna department reports.
+      </p>
+
+      {% if pmc_years %}
+        <div class="accordion" id="pmcYearsAccordion">
+          {% for year in pmc_years %}
+            <div class="accordion-item border rounded-3 overflow-hidden mb-2">
+              <h4 class="accordion-header">
+                <button
+                  class="accordion-button {% if not loop.first %}collapsed{% endif %}"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#pmcYear{{ year }}"
+                  aria-expanded="{{ 'true' if loop.first else 'false' }}"
+                  aria-controls="pmcYear{{ year }}"
+                >
+                  <span class="fw-semibold">{{ year }}</span>
+                  <span class="text-muted small ms-2">— {{ pmc_by_year[year]|length }} report{% if pmc_by_year[year]|length != 1 %}s{% endif %}</span>
+                </button>
+              </h4>
+              <div
+                id="pmcYear{{ year }}"
+                class="accordion-collapse collapse {% if loop.first %}show{% endif %}"
+                data-bs-parent="#pmcYearsAccordion"
+              >
+                <div class="accordion-body bg-white">
+                  <ul class="list-unstyled mb-0 vstack gap-3">
+                    {% for row in pmc_by_year[year] %}
+                      <li class="border-bottom pb-3 {% if loop.last %}border-0 pb-0{% endif %}">
+                        <div class="fw-semibold">{{ row.title }}</div>
+                        {% if row.description %}
+                          <div class="text-muted small mt-1" style="white-space: pre-wrap">{{ row.description }}</div>
+                        {% endif %}
+                        {% if row.pdf_url %}
+                          <a class="btn btn-sm btn-outline-dark mt-2" href="{{ row.pdf_url }}" target="_blank" rel="noopener noreferrer">Download PDF</a>
+                        {% endif %}
+                      </li>
+                    {% endfor %}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      {% else %}
+        <div class="p-4 bg-white border rounded-4 text-muted">
+          Year-by-year reports will appear here once they are published by the team.
+        </div>
+      {% endif %}
+    </div>
+  </section>
+
+  <section class="section section-muted">
+    <div class="container">
+      <h2 class="h4 fw-semibold mb-3">National Milestones &amp; Strategic Partnerships</h2>
+      <p class="text-muted mb-3">
+        Beyond our work in local governance, the Project Management Center continues to make significant strides on the
+        national stage:
+      </p>
+      <ul class="text-muted">
+        <li class="mb-2">
+          <span class="fw-semibold text-body">Legislative Scrutiny Milestones:</span>
+          Our team has successfully assisted multiple legislative offices in identifying areas for optimization within the
+          General Appropriations Bill, advocating for a more &ldquo;transparent, equitable, and accountable&rdquo; budget system.
+        </li>
+        <li class="mb-2">
+          <span class="fw-semibold text-body">National Proposal Refinement:</span>
+          We have collaborated with various national government agencies to enhance the technical viability of sectoral
+          project proposals, ensuring they are ready for inclusion in the national expenditure program.
+        </li>
+        <li class="mb-0">
+          <span class="fw-semibold text-body">Inter-Agency Technical Workshops:</span>
+          CNB has hosted technical sessions for government planners to share best practices in project management and
+          fiscal accountability.
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" id="collaborate-pmc">
+    <div class="container">
+      <div class="p-4 p-lg-5 bg-white border rounded-4">
+        <h2 class="h4 fw-semibold mb-2">Collaborate with the PMC</h2>
+        <p class="text-muted mb-4">
+          Is your office or organization looking to improve project viability or conduct deeper analysis of fiscal bills?
+          Our technical experts are ready to assist.
+        </p>
+        <div class="d-grid gap-2 d-sm-inline-flex">
+          <a class="btn btn-cnb" href="mailto:cnbreform55@gmail.com?subject=Technical%20consultation%20%E2%80%94%20Project%20Management%20Center">Contact Us for Technical Consultation</a>
+          <a class="btn btn-outline-dark" href="{{ url_for('site.contact') }}">Other contact options</a>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
+

@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+
+{% block title %}Contact — CNB{% endblock %}
+
+{% block breadcrumbs %}
+  <div class="breadcrumb-bar">
+    <div class="container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb breadcrumb--cnb mb-0 py-2">
+          <li class="breadcrumb-item">
+            <a class="text-decoration-none" href="{{ url_for('site.home') }}">Home</a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">Contact</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+{% endblock %}
+
+{% block content %}
+  <section class="section pt-4 contact-page">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-5">
+          <h1 class="h3 fw-bold mb-3">Contact</h1>
+          <div class="p-4 bg-white border rounded-4">
+            <div class="text-muted mb-2">Official contact details</div>
+            <div class="d-flex flex-column gap-1">
+              <div>
+                <span class="fw-semibold">Address:</span>
+                45 Perla, Pasay City, Metro Manila, Philippines
+              </div>
+              <div>
+                <span class="fw-semibold">Phones:</span>
+                <a class="text-decoration-none" href="tel:+639910199202">09910199202</a>
+                <span class="text-muted">|</span>
+                <a class="text-decoration-none" href="tel:+639156699421">09156699421</a>
+              </div>
+              <div>
+                <span class="fw-semibold">Email:</span>
+                <a class="text-decoration-none" href="mailto:cnbreform55@gmail.com">cnbreform55@gmail.com</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-4 bg-white border rounded-4 mt-3">
+            <h2 class="h6 fw-semibold">Tip</h2>
+            <p class="text-muted mb-0">
+              We reply fastest by email. For urgent matters, call during office hours.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-7">
+          <div class="bg-white border rounded-4 overflow-hidden">
+            <div class="ratio ratio-16x9">
+              <iframe
+                title="CNB location map"
+                src="https://www.google.com/maps?q=45%20Perla%2C%20Pasay%20City%2C%20Metro%20Manila%2C%20Philippines&output=embed"
+                style="border:0;"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+          <div class="small text-muted mt-2">
+            If the map doesn’t load, your browser may be blocking third‑party embeds.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
+

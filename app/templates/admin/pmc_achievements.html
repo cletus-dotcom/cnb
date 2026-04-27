@@ -1,0 +1,106 @@
+{% extends "layout.html" %}
+
+{% block title %}PMC reports — CNB{% endblock %}
+
+{% block breadcrumbs %}
+  <div class="breadcrumb-bar">
+    <div class="container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb breadcrumb--cnb mb-0 py-2">
+          <li class="breadcrumb-item">
+            <a class="text-decoration-none" href="{{ url_for('site.home') }}">Home</a>
+          </li>
+          <li class="breadcrumb-item">
+            <a class="text-decoration-none" href="{{ url_for('site.dashboard_posts') }}">Dashboard</a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">PMC reports</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+{% endblock %}
+
+{% block content %}
+  <section class="section pt-4">
+    <div class="container">
+      <div class="d-flex align-items-end justify-content-between gap-3 flex-wrap mb-3">
+        <div>
+          <h1 class="h4 fw-bold mb-1">PMC year-by-year reports</h1>
+          {% if current_user.is_admin %}
+            <p class="text-muted mb-0">Jagna legacy and department PDFs (all users).</p>
+          {% else %}
+            <p class="text-muted mb-0">Your uploaded reports for the Projects page.</p>
+          {% endif %}
+        </div>
+        <div class="d-flex gap-2 flex-wrap">
+          <a class="btn btn-outline-dark" href="{{ url_for('site.dashboard_posts') }}">News posts</a>
+          <a class="btn btn-cnb" href="{{ url_for('site.dashboard_pmc_achievements_new') }}">New report</a>
+        </div>
+      </div>
+
+      <div class="bg-white border rounded-4 overflow-hidden">
+        <div class="table-responsive">
+          <table class="table mb-0 align-middle">
+            <thead class="table-light">
+              <tr>
+                <th>Year</th>
+                <th>Title</th>
+                {% if current_user.is_admin %}
+                  <th>Owner</th>
+                {% endif %}
+                <th>Status</th>
+                <th>Date</th>
+                <th class="text-end">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for item in items %}
+                <tr>
+                  <td class="text-nowrap">{{ item.fiscal_year }}</td>
+                  <td>
+                    <div class="fw-semibold">{{ item.title }}</div>
+                    {% if item.pdf_url %}
+                      <a class="small text-decoration-none" href="{{ item.pdf_url }}" target="_blank" rel="noopener noreferrer">View PDF</a>
+                    {% endif %}
+                  </td>
+                  {% if current_user.is_admin %}
+                    <td class="text-muted small">{{ item.author.email if item.author else "—" }}</td>
+                  {% endif %}
+                  <td>
+                    {% if item.is_published %}
+                      <span class="badge text-bg-success">Published</span>
+                    {% else %}
+                      <span class="badge text-bg-secondary">Hidden</span>
+                    {% endif %}
+                  </td>
+                  <td class="text-muted small">{{ item.published_at.strftime("%b %d, %Y") }}</td>
+                  <td class="text-end">
+                    <div class="d-inline-flex gap-2">
+                      {% if current_user.is_admin or item.author_id == current_user.id %}
+                        <a class="btn btn-outline-dark btn-sm" href="{{ url_for('site.dashboard_pmc_achievements_edit', item_id=item.id) }}">Edit</a>
+                      {% endif %}
+                      {% if current_user.is_admin %}
+                        <form method="post" action="{{ url_for('site.dashboard_pmc_achievements_delete', item_id=item.id) }}" onsubmit="return confirm('Delete this report?');" class="m-0">
+                          <button class="btn btn-outline-danger btn-sm" type="submit">Delete</button>
+                        </form>
+                      {% endif %}
+                    </div>
+                  </td>
+                </tr>
+              {% endfor %}
+              {% if not items %}
+                <tr>
+                  <td colspan="{% if current_user.is_admin %}6{% else %}5{% endif %}" class="text-center text-muted py-4">No reports yet.</td>
+                </tr>
+              {% endif %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <p class="text-muted small mt-3 mb-0">
+        PDFs are stored in Supabase Storage when <code>SUPABASE_URL</code> and <code>SUPABASE_SERVICE_ROLE_KEY</code> are set.
+      </p>
+    </div>
+  </section>
+{% endblock %}

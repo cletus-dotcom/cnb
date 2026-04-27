@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block title %}Projects — CNB{% endblock %}
+
+{% block breadcrumbs %}
+  <div class="breadcrumb-bar">
+    <div class="container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb breadcrumb--cnb mb-0 py-2">
+          <li class="breadcrumb-item">
+            <a class="text-decoration-none" href="{{ url_for('site.home') }}">Home</a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">Projects</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+{% endblock %}
+
+{% block content %}
+  <section class="section pt-4">
+    <div class="container">
+      <p class="kicker mb-2">Projects</p>
+      <h1 class="h2 fw-bold mb-2">Project archive (coming soon)</h1>
+      <p class="lead text-muted mb-4">
+        This page is reserved for CNB&rsquo;s future project archive and catalog.
+      </p>
+
+      <div class="row g-3">
+        <div class="col-lg-7">
+          <div class="p-4 bg-white border rounded-4 h-100">
+            <h2 class="h5 fw-semibold mb-2">What to expect</h2>
+            <ul class="text-muted mb-0">
+              <li>Curated project entries, outcomes, and supporting documents</li>
+              <li>Search and filters by sector, geography, and fiscal year</li>
+              <li>Downloadable materials for transparency and accountability</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div class="p-4 service-card pastel-5 border rounded-4 h-100">
+            <h2 class="h6 fw-semibold mb-2">Looking for the PMC?</h2>
+            <p class="text-muted mb-3">
+              The Project Management Center (PMC) is CNB&rsquo;s technical services hub. Year-by-year Jagna legacy reports are
+              published there.
+            </p>
+            <a class="btn btn-cnb" href="{{ url_for('site.pmc') }}">Go to the PMC page</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
+

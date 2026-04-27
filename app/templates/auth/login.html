@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block title %}Login — CNB{% endblock %}
+
+{% block breadcrumbs %}
+  <div class="breadcrumb-bar">
+    <div class="container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb breadcrumb--cnb mb-0 py-2">
+          <li class="breadcrumb-item">
+            <a class="text-decoration-none" href="{{ url_for('site.home') }}">Home</a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">Login</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+{% endblock %}
+
+{% block content %}
+  <section class="section pt-4">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-8 col-lg-5">
+          <div class="p-4 bg-white border rounded-4">
+            <h1 class="h4 fw-bold mb-1">Login</h1>
+            <p class="text-muted mb-3">Admin/users can manage posts and updates.</p>
+
+            <form method="post" action="{{ url_for('auth.login_post') }}" class="vstack gap-3">
+              <div>
+                <label class="form-label">Email</label>
+                <input class="form-control" type="email" name="email" required autocomplete="email" />
+              </div>
+              <div>
+                <label class="form-label">Password</label>
+                <input class="form-control" type="password" name="password" required autocomplete="current-password" />
+              </div>
+              <button class="btn btn-cnb w-100" type="submit">Sign in</button>
+            </form>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
+

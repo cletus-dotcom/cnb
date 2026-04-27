@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% block title %}CNB{% endblock %}</title>
+    <meta name="description" content="CNB — Citizens for Nationwide Budget Reform: budget awareness, research, and public education." />
+
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/site.css') }}" />
+  </head>
+  <body>
+    <header class="navbar-wrap">
+      <nav class="navbar navbar-expand-lg navbar-light navbar-cnb border-bottom fixed-top">
+        <div class="container">
+          <a class="navbar-brand d-flex align-items-center gap-2 flex-nowrap" href="{{ url_for('site.home') }}">
+            <img
+              class="brand-logo"
+              src="{{ url_for('static', filename='img/logo.png') }}"
+              alt="CNB logo"
+              width="38"
+              height="38"
+              loading="eager"
+              decoding="async"
+            />
+            <span class="fw-semibold brand-title">
+              Citizens for Nationwide Budget <span class="brand-reform">Reform</span>
+            </span>
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain" aria-controls="navMain" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navMain">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item"><a class="nav-link" href="{{ url_for('site.about') }}">About</a></li>
+              <li class="nav-item"><a class="nav-link" href="{{ url_for('site.news') }}">News</a></li>
+              <li class="nav-item"><a class="nav-link" href="{{ url_for('site.events') }}">Events</a></li>
+              <li class="nav-item"><a class="nav-link" href="{{ url_for('site.center_research') }}">Research</a></li>
+              <li class="nav-item"><a class="nav-link" href="{{ url_for('site.center_education') }}">Education</a></li>
+              <li class="nav-item"><a class="nav-link" href="{{ url_for('site.center_content_provider') }}">Content</a></li>
+              <li class="nav-item"><a class="nav-link" href="{{ url_for('site.center_publishing') }}">Publishing</a></li>
+              <li class="nav-item"><a class="nav-link" href="{{ url_for('site.pmc') }}">Project Management</a></li>
+              <li class="nav-item"><a class="nav-link" href="{{ url_for('site.contact') }}">Contact</a></li>
+            </ul>
+
+            <div class="d-flex align-items-center gap-2">
+              {% if current_user.is_authenticated %}
+                <a class="btn btn-outline-dark btn-sm" href="{{ url_for('site.dashboard_posts') }}">Dashboard</a>
+                <form method="post" action="{{ url_for('auth.logout') }}" class="m-0">
+                  <button class="btn btn-cnb btn-sm" type="submit">Logout</button>
+                </form>
+              {% else %}
+                <a class="btn btn-cnb btn-sm btn-icon" href="{{ url_for('auth.login') }}" aria-label="Login">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M4 7H20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M4 12H20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M4 17H20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                </a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="main-content">
+      <div class="container mt-3">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, message in messages %}
+              <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+      </div>
+
+      {% block breadcrumbs %}{% endblock %}
+
+      {% block content %}{% endblock %}
+    </main>
+
+    <footer class="border-top mt-5 py-4 bg-white">
+      <div class="container">
+        <div class="row g-3 align-items-start">
+          <div class="col-md-6">
+            <div class="text-muted small">© {{ now.year }} CNB. All rights reserved.</div>
+            <div class="text-muted small">Citizens for Nationwide Budget <span class="brand-reform">Reform</span></div>
+          </div>
+          <div class="col-md-6">
+            <div class="text-muted small">
+              45 Perla, Pasay City, Metro Manila, Philippines
+            </div>
+            <div class="text-muted small">
+              <a class="text-decoration-none" href="tel:+639910199202">09910199202</a>
+              <span class="text-muted">|</span>
+              <a class="text-decoration-none" href="tel:+639156699421">09156699421</a>
+              <span class="text-muted">•</span>
+              <a class="text-decoration-none" href="mailto:cnbreform55@gmail.com">cnbreform55@gmail.com</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      (() => {
+        const navMain = document.getElementById("navMain");
+        if (!navMain) return;
+
+        navMain.addEventListener("click", (e) => {
+          const target = e.target;
+          if (!(target instanceof Element)) return;
+          const link = target.closest("a.nav-link");
+          if (!link) return;
+
+          // Only collapse on mobile when the toggler is visible
+          const toggler = document.querySelector(".navbar-toggler");
+          if (!toggler) return;
+          const togglerVisible = window.getComputedStyle(toggler).display !== "none";
+          if (!togglerVisible) return;
+
+          const instance = bootstrap.Collapse.getOrCreateInstance(navMain);
+          instance.hide();
+        });
+      })();
+    </script>
+  </body>
+</html>

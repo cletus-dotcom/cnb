@@ -1,0 +1,87 @@
+{% extends "layout.html" %}
+
+{% block title %}Admin — Users{% endblock %}
+
+{% block breadcrumbs %}
+  <div class="breadcrumb-bar">
+    <div class="container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb breadcrumb--cnb mb-0 py-2">
+          <li class="breadcrumb-item">
+            <a class="text-decoration-none" href="{{ url_for('site.home') }}">Home</a>
+          </li>
+          <li class="breadcrumb-item">
+            <a class="text-decoration-none" href="{{ url_for('site.dashboard_posts') }}">Dashboard</a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">Users</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+{% endblock %}
+
+{% block content %}
+  <section class="section pt-4">
+    <div class="container">
+      <div class="d-flex align-items-end justify-content-between gap-3 flex-wrap mb-3">
+        <div>
+          <h1 class="h4 fw-bold mb-1">Users</h1>
+          <p class="text-muted mb-0">Create and manage user accounts.</p>
+        </div>
+        <div class="d-flex gap-2">
+          <a class="btn btn-outline-dark" href="{{ url_for('site.dashboard_posts') }}">Posts</a>
+          <a class="btn btn-cnb" href="{{ url_for('site.admin_users_new') }}">New user</a>
+        </div>
+      </div>
+
+      <div class="bg-white border rounded-4 overflow-hidden">
+        <div class="table-responsive">
+          <table class="table mb-0 align-middle">
+            <thead class="table-light">
+              <tr>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Created</th>
+                <th class="text-end">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for u in users %}
+                <tr>
+                  <td>
+                    <div class="fw-semibold">{{ u.email }}</div>
+                    {% if u.id == current_user.id %}
+                      <div class="small text-muted">You</div>
+                    {% endif %}
+                  </td>
+                  <td>
+                    {% if u.is_admin %}
+                      <span class="badge text-bg-dark">Admin</span>
+                    {% else %}
+                      <span class="badge text-bg-secondary">User</span>
+                    {% endif %}
+                  </td>
+                  <td class="text-muted small">{{ u.created_at.strftime("%b %d, %Y") }}</td>
+                  <td class="text-end">
+                    <div class="d-inline-flex gap-2">
+                      <a class="btn btn-outline-dark btn-sm" href="{{ url_for('site.admin_users_edit', user_id=u.id) }}">Edit</a>
+                      {% if u.id != current_user.id %}
+                        <form method="post" action="{{ url_for('site.admin_users_delete', user_id=u.id) }}" onsubmit="return confirm('Delete this user?');" class="m-0">
+                          <button class="btn btn-outline-danger btn-sm" type="submit">Delete</button>
+                        </form>
+                      {% endif %}
+                    </div>
+                  </td>
+                </tr>
+              {% endfor %}
+              {% if not users %}
+                <tr><td colspan="4" class="text-center text-muted py-4">No users found.</td></tr>
+              {% endif %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
+
