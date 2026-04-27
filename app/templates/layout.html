@@ -85,7 +85,7 @@
       {% block content %}{% endblock %}
     </main>
 
-    <footer class="border-top mt-5 py-4 bg-white">
+    <footer class="border-top mt-5 py-4 navbar-cnb">
       <div class="container">
         <div class="row g-3 align-items-start">
           <div class="col-md-6">
@@ -111,8 +111,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
       (() => {
+        const navbar = document.querySelector("nav.navbar");
         const navMain = document.getElementById("navMain");
-        if (!navMain) return;
+        if (!navbar || !navMain) return;
 
         navMain.addEventListener("click", (e) => {
           const target = e.target;
@@ -129,6 +130,45 @@
           const instance = bootstrap.Collapse.getOrCreateInstance(navMain);
           instance.hide();
         });
+
+        // Auto-hide navbar on scroll down, show on scroll up
+        let lastY = window.scrollY || 0;
+        let ticking = false;
+        const threshold = 8;
+
+        const isMenuOpen = () => navMain.classList.contains("show");
+
+        const update = () => {
+          ticking = false;
+          const y = window.scrollY || 0;
+          const delta = y - lastY;
+
+          // Always show at top or while menu is open
+          if (y < 10 || isMenuOpen()) {
+            navbar.classList.remove("navbar-hidden");
+            lastY = y;
+            return;
+          }
+
+          if (Math.abs(delta) < threshold) return;
+          if (delta > 0) {
+            navbar.classList.add("navbar-hidden");
+          } else {
+            navbar.classList.remove("navbar-hidden");
+          }
+          lastY = y;
+        };
+
+        window.addEventListener(
+          "scroll",
+          () => {
+            if (!ticking) {
+              ticking = true;
+              window.requestAnimationFrame(update);
+            }
+          },
+          { passive: true }
+        );
       })();
     </script>
   </body>

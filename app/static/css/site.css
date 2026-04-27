@@ -41,6 +41,15 @@ section[id]{scroll-margin-top:90px;}
   background:var(--cnb-nav) !important;
 }
 
+.navbar{
+  transition: transform .18s ease, box-shadow .18s ease;
+  will-change: transform;
+}
+.navbar.navbar-hidden{
+  transform: translateY(-110%);
+  box-shadow: none !important;
+}
+
 .brand-reform{
   color:var(--cnb-red);
   font-style:italic;
