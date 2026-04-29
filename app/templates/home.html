@@ -3,57 +3,413 @@
 {% block title %}CNB — Citizens for Nationwide Budget Reform{% endblock %}
 
 {% block content %}
-  <section class="hero-carousel">
-    <div class="hero-triptych">
-      <a href="{{ url_for('site.about') }}" class="hero-banner__link" aria-label="Open About CNB">
-        <div class="hero-triptych__inner">
-          <div class="hero-triptych__col hero-triptych__left">
-            <img
-              src="{{ url_for('static', filename='img/cnb_logo_hero.png') }}"
-              class="hero-logo hero-logo--xl"
-              alt="CNB logo"
-            />
-          </div>
-          <div class="hero-triptych__col hero-triptych__center">
-            <img
-              src="{{ url_for('static', filename='img/cnb_mission-vision_text.png') }}"
-              class="hero-mission hero-mission--sm"
-              alt="CNB mission and vision"
-            />
-          </div>
-          <div class="hero-triptych__col hero-triptych__right" aria-hidden="true">
-            <img
-              src="{{ url_for('static', filename='img/hero_background_cutout.png') }}"
-              class="hero-right"
-              alt=""
-            />
-          </div>
+  <section class="home-banner">
+    <div class="container home-banner__inner">
+      <div class="home-banner__topline">TRANSPARENCY • EQUITABILITY • ACCOUNTABILITY</div>
+
+      <div class="home-banner__brand">
+        <div class="home-banner__mark" aria-label="CNB">
+          <span class="home-banner__c">C</span><span class="home-banner__n">N</span><span class="home-banner__b">B</span>
         </div>
-      </a>
+        <div class="home-banner__submark">CITIZENS FOR NATIONWIDE BUDGET REFORM</div>
+      </div>
+
+      <div class="home-banner__rule" aria-hidden="true"></div>
+
+      <h1 class="home-banner__headline">
+        The national budget,<br />
+        decoded for those who serve<br />
+        the public.
+      </h1>
+
+      <p class="home-banner__lede mb-0">
+        Empowering local governments, policymakers, and citizens to<br />
+        understand, access, and benefit from the Philippine national budget.
+      </p>
+
+      <div class="home-banner__badge" aria-label="30 years of fiscal advocacy">
+        <div class="home-banner__badge-inner">
+          <div class="home-banner__badge-num">30</div>
+          <div class="home-banner__badge-text">YEARS OF<br />FISCAL ADVOCACY</div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section class="section pt-4 welcome-section">
-    <div class="container">
-      <div class="row g-4 align-items-center">
-        <div class="col-12">
-          <p class="kicker mb-2">Formerly CENTER for NATIONAL BUDGET</p>
-          <div class="row g-3 align-items-start">
-            <div class="col-lg-9">
-              <p class="lead text-body mb-0">
-                Welcome to the home of Citizens for Nationwide Budget Reform (CNB), a SEC-registered, non-profit, and nonpartisan organization that has
-                championed transparency, equitability, and accountability in the Philippine budget system for nearly three decades.
-                <br /><br />
-                At CNB, we believe that budget awareness is the cornerstone of good governance. While the national budget is central to our country's
-                development, a persistent gap remains in public understanding. We aim to fill this gap by serving as a dedicated platform for budget
-                literacy and citizen engagement, ensuring that public funds truly serve the people—especially those in underserved communities.
-              </p>
+  <section class="purpose-section">
+    <div class="container purpose__inner">
+      <div class="purpose__kicker">OUR PURPOSE</div>
+      <h2 class="purpose__title">Built to serve<br />every Filipino.</h2>
+      <div class="purpose__rule" aria-hidden="true"></div>
+
+      <div class="row g-4 mt-4">
+        <div class="col-lg-6">
+          <div class="purpose-card">
+            <div class="purpose-card__label">MISSION</div>
+            <div class="purpose-card__body">
+              We inspire and equip Filipinos—citizens, officials, and institutions—with the knowledge to understand and act on the national budget,
+              through education, research, and advocacy.
             </div>
-            <div class="col-lg-3 ps-lg-4">
-              <div class="d-grid gap-2 mt-1 welcome-cta">
-                <a class="btn btn-cnb w-100" href="{{ url_for('site.about') }}">Explore CNB</a>
-                <a class="btn btn-outline-dark w-100" href="{{ url_for('site.news') }}">Read the latest</a>
-                <a class="btn btn-outline-dark w-100" href="{{ url_for('site.events') }}">Events</a>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="purpose-card">
+            <div class="purpose-card__label">VISION</div>
+            <div class="purpose-card__body">
+              A national budget system that is transparent, accountable, equitable, and genuinely responsive to the needs of all Filipinos—especially those
+              in underserved communities.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="purpose-work mt-5">
+        <h3 class="purpose-work__title">Who We Work With</h3>
+        <div class="purpose__rule purpose__rule--sm" aria-hidden="true"></div>
+
+        <div class="row g-0 purpose-work__list mt-3">
+          <div class="col-md-6">
+            <div class="purpose-work__item">Local Government Units</div>
+            <div class="purpose-work__item">Executive Officials</div>
+            <div class="purpose-work__item">Civil Society Organizations</div>
+            <div class="purpose-work__item">Media</div>
+            <div class="purpose-work__item">Business Sector</div>
+          </div>
+          <div class="col-md-6">
+            <div class="purpose-work__item">Legislators</div>
+            <div class="purpose-work__item">Policymakers</div>
+            <div class="purpose-work__item">Academic Institutions</div>
+            <div class="purpose-work__item">Judiciary</div>
+            <div class="purpose-work__item purpose-work__item--spacer" aria-hidden="true"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="who-section">
+    <div class="container who__inner">
+      <div class="row g-4 g-lg-5 align-items-start">
+        <div class="col-lg-7">
+          <div class="who__kicker">WHO WE ARE</div>
+          <h2 class="who__title">Three decades at the forefront<br />of fiscal governance.</h2>
+          <div class="who__rule" aria-hidden="true"></div>
+
+          <div class="who__prose">
+            <p>
+              The Citizens for Nationwide Budget Reform (CNB) is a non-stock, non-profit, nonpartisan organization registered with the Securities and Exchange Commission.
+              Since our founding, CNB has stood for one core belief: every Filipino deserves to understand where their public money goes—and how to access it.
+            </p>
+            <p>
+              We engage the budget process through research, policy analysis, stakeholder consultations, and education. We don't just decode the General
+              Appropriations Act. We give LGUs, legislators, and citizens the tools to participate meaningfully in it.
+            </p>
+            <p>
+              The national budget grows larger each year—yet public understanding of it remains shallow. CNB exists to close that gap.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-5">
+          <div class="who-stats">
+            <div class="who-stat">
+              <div class="who-stat__value">30<span class="who-stat__plus">+</span></div>
+              <div class="who-stat__label">YEARS OF BUDGET<br />RESEARCH &amp; ADVOCACY</div>
+            </div>
+            <div class="who-stat">
+              <div class="who-stat__value">5</div>
+              <div class="who-stat__label">
+                SERVICE PILLARS:<br />
+                RESEARCH · PUBLISHING<br />
+                CONTENT · EDUCATION<br />
+                PROJECT MANAGEMENT
+              </div>
+            </div>
+            <div class="who-stat">
+              <div class="who-stat__value">9</div>
+              <div class="who-stat__label">STAKEHOLDER SECTORS<br />SERVED NATIONWIDE</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row g-0 who-banners mt-4">
+        <div class="col-lg-7">
+          <div class="who-banner who-banner--quote">
+            <div class="who-banner__quote">
+              “When LGUs understand the flow of national funds,<br />
+              they stop waiting—and start accessing.”
+            </div>
+            <div class="who-banner__byline">— CNB ADVOCACY POSITION</div>
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div class="who-banner who-banner--gaa">
+            <div class="who-banner__gaa">GAA</div>
+            <div class="who-banner__gaa-sub">PRIMARY SOURCE</div>
+            <div class="who-banner__gaa-sub who-banner__gaa-sub--muted">WE DECODE FOR YOU</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="roles-section">
+    <div class="container roles__inner">
+      <div class="roles__kicker">OUR FIVE ROLES</div>
+      <h2 class="roles__title">From research to action.</h2>
+      <div class="roles__rule" aria-hidden="true"></div>
+
+      <div class="row g-4 mt-4">
+        <div class="col-lg-6">
+          <div class="role-card role-card--blue">
+            <div class="role-card__num">01</div>
+            <div class="role-card__kicker">RESEARCH CENTER</div>
+            <div class="role-card__title">We follow the money.</div>
+            <div class="role-card__body">
+              Rigorous analysis of budget trends, revenue, public debt, and sectoral spending—drawn directly from the NEP, GAB, GAA, BESF, and Staffing Summaries.
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="role-card role-card--blue">
+            <div class="role-card__num">02</div>
+            <div class="role-card__kicker">PUBLISHING CENTER</div>
+            <div class="role-card__title">We make it readable.</div>
+            <div class="role-card__body">
+              Books, primers, policy briefs, infographics, and annual reviews—designed so complex fiscal information becomes clear and actionable for any audience.
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="role-card role-card--blue">
+            <div class="role-card__num">03</div>
+            <div class="role-card__kicker">CONTENT PROVIDER</div>
+            <div class="role-card__title">We go deeper on demand.</div>
+            <div class="role-card__body">
+              Custom research for investigative journalism, legislative inquiry, and civil society advocacy. CNB data has shaped landmark accountability actions in government.
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="role-card role-card--blue">
+            <div class="role-card__num">04</div>
+            <div class="role-card__kicker">EDUCATION CENTER</div>
+            <div class="role-card__title">We build capacity.</div>
+            <div class="role-card__body">
+              Workshops, masterclasses, and policy briefings for LGUs, legislators, media, and CSOs—tailored from community leaders to senior technical fiscal staff.
+            </div>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="role-card role-card--gold role-card--wide">
+            <div class="role-card__num">05</div>
+            <div class="role-card__kicker">PROJECT MANAGEMENT CENTER</div>
+            <div class="role-card__title">We help you access and deliver.</div>
+            <div class="role-card__wide-body">
+              From proposal writing to budget review, M&amp;E, and audit readiness—CNB provides end-to-end technical assistance to ensure public funds are accessed,
+              utilized correctly, and accounted for. This is where LGUs benefit most directly from CNB's expertise.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="lgu-section">
+    <div class="container lgu__inner">
+      <div class="lgu__kicker">BUILT FOR LOCAL GOVERNMENTS</div>
+      <h2 class="lgu__title">Your LGU deserves<br />more than the IRA.</h2>
+      <div class="lgu__rule" aria-hidden="true"></div>
+
+      <p class="lgu__lede">
+        The national budget is one of the most underutilized resources available to local governments. CNB helps your LGU find, access, and deliver national
+        funding—legally, systematically, and effectively.
+      </p>
+
+      <div class="row g-4 g-lg-5 lgu-grid">
+        <div class="col-lg-6">
+          <div class="lgu-block">
+            <div class="lgu-block__title">Proposal Packaging &amp; Writing</div>
+            <div class="lgu-block__rule" aria-hidden="true"></div>
+            <ul class="lgu-list">
+              <li>Developing projects aligned with national priorities</li>
+              <li>Identifying the right funding windows per NGA</li>
+              <li>Strengthening your AIP for national budget linkage</li>
+            </ul>
+          </div>
+
+          <div class="lgu-block mt-4">
+            <div class="lgu-block__title">Budget Analysis &amp; Review</div>
+            <div class="lgu-block__rule" aria-hidden="true"></div>
+            <ul class="lgu-list">
+              <li>Decoding the GAA for LGU-accessible appropriations</li>
+              <li>Mapping NGA funds your LGU can co-deliver</li>
+              <li>Supporting legislative review of the GAB</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="lgu-block">
+            <div class="lgu-block__title">Monitoring &amp; Evaluation</div>
+            <div class="lgu-block__rule" aria-hidden="true"></div>
+            <ul class="lgu-list">
+              <li>Designing M&amp;E frameworks for fund utilization</li>
+              <li>Tracking project outcomes against national benchmarks</li>
+              <li>Policy impact assessment and reporting</li>
+            </ul>
+          </div>
+
+          <div class="lgu-block mt-4">
+            <div class="lgu-block__title">Capacity-Building &amp; Audit Readiness</div>
+            <div class="lgu-block__rule" aria-hidden="true"></div>
+            <ul class="lgu-list">
+              <li>Training on compliance and financial documentation</li>
+              <li>Preparing LGU teams for COA scrutiny</li>
+              <li>Performance reporting and program accountability</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="lgu-benefits mt-5">
+        <div class="lgu-benefits__title">What LGUs gain working with CNB</div>
+        <div class="row g-3 mt-2">
+          <div class="col-md-6">
+            <div class="lgu-benefits__item">Access to national budget funds beyond the IRA</div>
+            <div class="lgu-benefits__item">A budget team that truly understands the GAA</div>
+          </div>
+          <div class="col-md-6">
+            <div class="lgu-benefits__item">Proposals that move—aligned to NGA priorities</div>
+            <div class="lgu-benefits__item">Audit-ready documentation and clean records</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="km-section">
+    <div class="container km__inner">
+      <div class="km__kicker">KNOWLEDGE MATERIALS</div>
+      <h2 class="km__title">The budget, in print.</h2>
+      <div class="km__rule" aria-hidden="true"></div>
+      <p class="km__lede">Three decades of expertise—packaged into references you can actually use.</p>
+
+      <div class="row g-4 mt-4">
+        <div class="col-lg-4">
+          <div class="km-card">
+            <div class="km-card__head km-card__head--navy">
+              <div class="km-card__kicker">PERIODICAL</div>
+              <div class="km-card__title">Budget Review</div>
+            </div>
+            <div class="km-card__body">
+              CNB's policy journal. Each issue tackles timely budget questions—from Special Purpose Funds to GAA provisions affecting LGUs. Clear context and
+              practical interpretation in every volume.
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="km-card">
+            <div class="km-card__head km-card__head--gold">
+              <div class="km-card__kicker">ANNUAL REFERENCE</div>
+              <div class="km-card__title km-card__title--dark">Budget Facts &amp; Figures 2025</div>
+            </div>
+            <div class="km-card__body">
+              The definitive breakdown of the National Government Budget and GAA. Includes budgets by department, agency, GOCC, sector, and program—with
+              annotations on fund utilization rules. Essential for LGU budget officers.
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="km-card">
+            <div class="km-card__head km-card__head--sky">
+              <div class="km-card__kicker">COMPANION VOLUME</div>
+              <div class="km-card__title">Budget Facts &amp; Figures:<br />Selected Agencies</div>
+            </div>
+            <div class="km-card__body">
+              A granular look at agencies under key national departments. Itemized allocations, funding breakdowns, and program analysis—designed to help LGUs
+              spot co-delivery opportunities.
+              <div class="km-card__tag">AVAILABLE SOON</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="km-callout mt-5">
+        <div class="km-callout__kicker">NEW RELEASE</div>
+        <div class="km-callout__title">LGU Empowerment: Accessing the National Budget</div>
+        <div class="km-callout__body">
+          A field-ready guide for local chief executives and budget officers on how to access national budget funding through national government agencies.
+          Practical, direct, and built for the LGU office. Every participant in the June 18 seminar-workshop receives a copy.
+        </div>
+      </div>
+
+      <div class="km-quote mt-4">
+        <div class="km-quote__title">
+          Budget awareness is not a luxury.<br />
+          It is the foundation of good governance.
+        </div>
+        <div class="km-quote__body">
+          When citizens, local governments, and institutions understand where public money goes, they are better positioned to demand services, propose viable
+          programs, and hold implementation accountable. CNB makes this possible—bringing the national budget within reach of every Filipino.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="principles-section">
+    <div class="container principles__inner">
+      <div class="principles__kicker">OUR CORE PRINCIPLES</div>
+
+      <div class="row g-4 mt-2">
+        <div class="col-lg-4">
+          <div class="principle-card">
+            <div class="principle-card__title">Transparency</div>
+            <div class="principle-card__rule" aria-hidden="true"></div>
+            <div class="principle-card__body">No budget allocation should be a mystery to those it is meant to serve.</div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="principle-card">
+            <div class="principle-card__title">Equitability</div>
+            <div class="principle-card__rule" aria-hidden="true"></div>
+            <div class="principle-card__body">Every peso should reach the communities that need it most.</div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="principle-card">
+            <div class="principle-card__title">Accountability</div>
+            <div class="principle-card__rule" aria-hidden="true"></div>
+            <div class="principle-card__body">Public funds must be tracked, reported, and accounted for—no exceptions.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="principles-panel mt-4">
+        <div class="row g-4 g-lg-5 align-items-start">
+          <div class="col-lg-6">
+            <div class="principles-panel__title">The gap CNB fills—for your LGU and<br />beyond.</div>
+            <div class="principles-panel__body">
+              No institution has made the Philippine national budget fully accessible to local governments—until now. CNB builds the platform, publications, and
+              training programs that make budget literacy standard, not a privilege.
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="principles-panel__side">
+              <div class="principles-panel__item">
+                <div class="principles-panel__tag">FOR LGUS</div>
+                <div class="principles-panel__text">
+                  Access national funds beyond the IRA—through agencies and programs already budgeted for your constituents.
+                </div>
+              </div>
+              <div class="principles-panel__item">
+                <div class="principles-panel__tag">FOR OFFICIALS</div>
+                <div class="principles-panel__text">
+                  Govern with confidence—backed by data, tools, and training that make fiscal decisions defensible and effective.
+                </div>
               </div>
             </div>
           </div>
@@ -62,92 +418,222 @@
     </div>
   </section>
 
-  <section class="section whatdo-section">
-    <div class="container">
-      <div class="d-flex align-items-end justify-content-between gap-3 flex-wrap mb-3">
-        <div>
-          <h2 class="h4 fw-semibold mb-1">What do we do</h2>
-          <p class="text-muted mb-0">CNB works through specialized centers of excellence.</p>
+  <section class="leadership-section">
+    <div class="container leadership__inner">
+      <div class="row g-4 g-lg-5 align-items-start">
+        <div class="col-lg-7">
+          <div class="leadership__kicker">LEADERSHIP</div>
+          <div class="leadership__rule" aria-hidden="true"></div>
+
+          <h2 class="leadership__name">Joseph Achacoso Rañola</h2>
+          <div class="leadership__meta">FOUNDER &amp; PRESIDENT, CNB&nbsp;&nbsp;|&nbsp;&nbsp;FORMER MAYOR, JAGNA, BOHOL</div>
+          <div class="leadership__rule leadership__rule--after" aria-hidden="true"></div>
+
+          <div class="leadership__prose">
+            <p>
+              Joseph "JR" Rañola is one of the Philippines' foremost authorities on the national budget system—with over 30 years spanning public finance
+              research, legislative consultation, and local governance.
+            </p>
+            <p>
+              In 2002, he was appointed Budget Consultant to the Supreme Court. He has since advised senators, representatives, executive agencies, and LGU
+              officials. In 2006, he founded CNB—formalizing a career-long advocacy for fiscal transparency, equity, and accountability.
+            </p>
+            <p>
+              From 2019 to 2025, JR served as Mayor of Jagna, Bohol—bringing his national budget expertise directly into local governance. He governed with
+              fiscal discipline, participatory leadership, and results-driven accountability.
+            </p>
+          </div>
+
+          <div class="leadership__expertise">
+            <div class="leadership__expertise-kicker">AREAS OF EXPERTISE</div>
+            <ul class="leadership__expertise-list">
+              <li>National budget research, analysis, and policy development</li>
+              <li>Budget legislation and legislative oversight</li>
+              <li>Local government budgeting, procurement, and accountability</li>
+              <li>Strategic planning and executive management</li>
+              <li>Editorial management and budget publications</li>
+              <li>Capacity-building and institutional strengthening</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-lg-5">
+          <div class="leadership__media">
+            <div class="leadership__photo">
+              <img src="{{ url_for('static', filename='img/leadership.png') }}" alt="Leadership photo" loading="lazy" decoding="async" />
+            </div>
+
+            <div class="leadership__timeline">
+              <div class="leadership__milestone">
+                <div class="leadership__milestone-year">2006 — Present</div>
+                <div class="leadership__milestone-role">Founder, CNB</div>
+              </div>
+              <div class="leadership__milestone">
+                <div class="leadership__milestone-year">2019 — 2025</div>
+                <div class="leadership__milestone-role">Mayor, Jagna, Bohol</div>
+              </div>
+              <div class="leadership__milestone">
+                <div class="leadership__milestone-year">2002</div>
+                <div class="leadership__milestone-role">Budget Consultant,<br />Supreme Court</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
+    </div>
+  </section>
 
-      <div class="row g-3 justify-content-center">
+  <section class="whatdo-section">
+    <div class="container whatdo__inner">
+      <div class="whatdo__kicker">WHAT DO WE DO</div>
+      <div class="whatdo__rule" aria-hidden="true"></div>
+      <h2 class="whatdo__title">From our centers of excellence.</h2>
+      <p class="whatdo__lede">CNB works through specialized centers of excellence.</p>
+
+      <div class="row g-4 mt-4 justify-content-center">
         <div class="col-md-6 col-lg-4">
           <a
             href="{{ url_for('site.center_research') }}"
-            class="card card-soft service-card whatdo-card pastel-5 card-link text-decoration-none text-body"
+            class="whatdo-card2 whatdo-card2--research card-link text-decoration-none"
           >
-            <img
-              src="{{ url_for('static', filename='img/whatdo-research.png') }}"
-              class="whatdo-cover"
-              alt="As a Research Center"
-            />
-          </a>
-        </div>
-
-        <div class="col-md-6 col-lg-4">
-          <a
-            href="{{ url_for('site.center_education') }}"
-            class="card card-soft service-card whatdo-card pastel-lemon card-link text-decoration-none text-body"
-          >
-            <img
-              src="{{ url_for('static', filename='img/whatdo-education.png') }}"
-              class="whatdo-cover"
-              alt="As an Education Center"
-            />
-          </a>
-        </div>
-
-        <div class="col-md-6 col-lg-4">
-          <a
-            href="{{ url_for('site.center_content_provider') }}"
-            class="card card-soft service-card whatdo-card pastel-content card-link text-decoration-none text-body"
-          >
-            <img
-              src="{{ url_for('static', filename='img/whatdo-content.png') }}"
-              class="whatdo-cover"
-              alt="As a Content Provider"
-            />
+            <div class="whatdo-research">
+              <div class="whatdo-research__icon" aria-hidden="true">
+                <img
+                  src="{{ url_for('static', filename='img/research-logo-3d.png') }}"
+                  alt=""
+                  class="whatdo-research__icon-img"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="whatdo-research__title">As a Research Center</div>
+              <div class="whatdo-research__body">
+                CNB conducts research on budget history, expenditure program, revenue, appropriations and obligations, borrowing and outstanding debt of the
+                national government.
+              </div>
+            </div>
           </a>
         </div>
 
         <div class="col-md-6 col-lg-4">
           <a
             href="{{ url_for('site.center_publishing') }}"
-            class="card card-soft service-card whatdo-card pastel-publishing card-link text-decoration-none text-body"
+            class="whatdo-card2 whatdo-card2--center whatdo-card2--publishing card-link text-decoration-none"
           >
-            <img
-              src="{{ url_for('static', filename='img/whatdo-publishing.png') }}"
-              class="whatdo-cover"
-              alt="As a Publishing Center"
-            />
+            <div class="whatdo-center">
+              <div class="whatdo-center__icon" aria-hidden="true">
+                <img
+                  src="{{ url_for('static', filename='img/publishing-logo-3d.png') }}"
+                  alt=""
+                  class="whatdo-center__icon-img"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="whatdo-center__title">As a Publishing Center</div>
+              <div class="whatdo-center__body">
+                We publish practical references—primers, briefs, and reviews—so budget information is readable and actionable.
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <a
+            href="{{ url_for('site.center_content_provider') }}"
+            class="whatdo-card2 whatdo-card2--center whatdo-card2--content card-link text-decoration-none"
+          >
+            <div class="whatdo-center">
+              <div class="whatdo-center__icon" aria-hidden="true">
+                <img
+                  src="{{ url_for('static', filename='img/content-logo-3d.png') }}"
+                  alt=""
+                  class="whatdo-center__icon-img"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="whatdo-center__title">As a Content Provider</div>
+              <div class="whatdo-center__body">
+                CNB conducts in-depth and historical research on the budgets of departments and agencies as well as the budget dimensions of sectoral issues and concerns.
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <a
+            href="{{ url_for('site.center_education') }}"
+            class="whatdo-card2 whatdo-card2--center whatdo-card2--education card-link text-decoration-none"
+          >
+            <div class="whatdo-center">
+              <div class="whatdo-center__icon" aria-hidden="true">
+                <img
+                  src="{{ url_for('static', filename='img/education-logo-3d.png') }}"
+                  alt=""
+                  class="whatdo-center__icon-img"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="whatdo-center__title">As an Education Center</div>
+              <div class="whatdo-center__body">
+                To inspire and empower every Filipino with the knowledge of the national budget through education.
+              </div>
+            </div>
           </a>
         </div>
 
         <div class="col-md-6 col-lg-4">
           <a
             href="{{ url_for('site.pmc') }}"
-            class="card card-soft service-card whatdo-card pastel-pmc card-link text-decoration-none text-body"
+            class="whatdo-card2 whatdo-card2--center whatdo-card2--pmc card-link text-decoration-none"
           >
-            <img
-              src="{{ url_for('static', filename='img/whatdo-pmc.png') }}"
-              class="whatdo-cover"
-              alt="As a Project Management Center"
-            />
+            <div class="whatdo-center">
+              <div class="whatdo-center__icon" aria-hidden="true">
+                <img
+                  src="{{ url_for('static', filename='img/pmc-logo-3d.png') }}"
+                  alt=""
+                  class="whatdo-center__icon-img"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="whatdo-center__title">As a Project Management Center</div>
+              <div class="whatdo-center__body">
+                End-to-end support to help institutions access funding, deliver projects, and strengthen implementation and accountability.
+              </div>
+            </div>
           </a>
         </div>
       </div>
     </div>
   </section>
 
+  <section class="currentpub-section">
+    <div class="container">
+      <div class="cnb-kicker">CURRENT PUBLICATIONS</div>
+      <div class="cnb-rule" aria-hidden="true"></div>
+      <h2 class="cnb-title cnb-title--lg">Available for order or request.</h2>
+      <p class="cnb-lede mb-0">Browse our latest titles and request copies through CNB.</p>
+
+      <div class="currentpub-card mt-4">
+        <img
+          src="{{ url_for('static', filename='img/current-publications.png') }}"
+          alt="Local Budgets: New Editions — current publications"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+    </div>
+  </section>
+
   <section class="section comingsoon-section">
     <div class="container">
-      <div class="d-flex align-items-end justify-content-between gap-3 flex-wrap mb-3">
-        <div>
-          <h2 class="h4 fw-semibold mb-1">Coming soon</h2>
-          <p class="text-muted mb-0">New CNB books in progress.</p>
-        </div>
-      </div>
+      <div class="cnb-kicker">COMING SOON</div>
+      <div class="cnb-rule" aria-hidden="true"></div>
+      <h2 class="cnb-title cnb-title--lg">New books in progress.</h2>
+      <p class="cnb-lede mb-0">A preview of upcoming CNB books.</p>
 
       <div class="row g-3 justify-content-center">
         <div class="col-md-4">
@@ -171,12 +657,10 @@
 
   <section class="section comingsoon-section">
     <div class="container">
-      <div class="d-flex align-items-end justify-content-between gap-3 flex-wrap mb-3">
-        <div>
-          <h2 class="h4 fw-semibold mb-1">2027 Publications</h2>
-          <p class="text-muted mb-0">Preview of upcoming publications.</p>
-        </div>
-      </div>
+      <div class="cnb-kicker">PUBLICATIONS</div>
+      <div class="cnb-rule" aria-hidden="true"></div>
+      <h2 class="cnb-title cnb-title--lg">2027 Publications</h2>
+      <p class="cnb-lede mb-0">Preview of upcoming publications.</p>
 
       <div class="row g-3 justify-content-center">
         <div class="col-md-4">
@@ -200,10 +684,12 @@
 
   <section class="section section-muted">
     <div class="container">
-      <div class="d-flex align-items-end justify-content-between gap-3 flex-wrap mb-3">
+      <div class="d-flex align-items-end justify-content-between gap-3 flex-wrap">
         <div>
-          <h2 class="h4 fw-semibold mb-1">Latest News</h2>
-          <p class="text-muted mb-0">Published updates, articles, and announcements.</p>
+          <div class="cnb-kicker">LATEST</div>
+          <div class="cnb-rule" aria-hidden="true"></div>
+          <h2 class="cnb-title cnb-title--lg">Latest News</h2>
+          <p class="cnb-lede mb-0">Published updates, articles, and announcements.</p>
         </div>
         <a class="btn btn-outline-dark btn-sm" href="{{ url_for('site.news') }}">View all</a>
       </div>
@@ -237,10 +723,10 @@
     <div class="container">
       <div class="row g-4 align-items-center">
         <div class="col-lg-5">
-          <h2 class="h4 fw-semibold mb-2">Updates on Facebook</h2>
-          <p class="text-muted mb-0">
-            Follow CNB for announcements, events, and community updates.
-          </p>
+          <div class="cnb-kicker">UPDATES</div>
+          <div class="cnb-rule" aria-hidden="true"></div>
+          <h2 class="cnb-title cnb-title--md">Updates on Facebook</h2>
+          <p class="cnb-lede mb-0">Follow CNB for announcements, events, and community updates.</p>
         </div>
         <div class="col-lg-7">
           <div class="phone-frame mx-lg-auto">
@@ -266,12 +752,12 @@
 
       <div class="row g-4 align-items-center mt-2">
         <div class="col-lg-5">
-          <h2 class="h5 fw-semibold mb-2">Videos on YouTube</h2>
-          <p class="text-muted mb-0">
+          <div class="cnb-kicker">VIDEOS</div>
+          <div class="cnb-rule" aria-hidden="true"></div>
+          <h2 class="cnb-title cnb-title--md">Videos on YouTube</h2>
+          <p class="cnb-lede mb-0">
             Watch CNB content on YouTube.
-            <a class="text-decoration-none" href="https://www.youtube.com/@cnbreform" target="_blank" rel="noopener noreferrer">
-              Open channel
-            </a>
+            <a class="text-decoration-none" href="https://www.youtube.com/@cnbreform" target="_blank" rel="noopener noreferrer">Open channel</a>
           </p>
         </div>
         <div class="col-lg-7">
@@ -298,8 +784,10 @@
       <div class="cta rounded-4 p-4 p-md-5">
         <div class="row g-3 align-items-center">
           <div class="col-lg-8">
-            <h2 class="h4 fw-bold mb-2">Want to collaborate with CNB?</h2>
-            <p class="mb-0 text-muted">Partnerships, trainings, speaking, and custom research requests.</p>
+            <div class="cnb-kicker">COLLABORATE</div>
+            <div class="cnb-rule" aria-hidden="true"></div>
+            <h2 class="cnb-title cnb-title--lg">Want to collaborate with CNB?</h2>
+            <p class="cnb-lede mb-0">Partnerships, trainings, speaking, and custom research requests.</p>
           </div>
           <div class="col-lg-4 text-lg-end">
             <a class="btn btn-cnb" href="{{ url_for('site.contact') }}">Contact us</a>

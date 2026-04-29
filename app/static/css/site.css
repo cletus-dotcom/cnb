@@ -4,22 +4,182 @@
   --cnb-ink:#111827;
   --cnb-muted:#6b7280;
   --cnb-soft:#f7f7fb;
-  --cnb-nav:#fffcc3;
+  --cnb-blue:#2f5f96;
+  --cnb-gold:#c79b3a;
+  --cnb-nav:#ffffff;
+  /* 1 inch ≈ 96px at 96 DPI (CSS px). */
+  --cnb-nav-height:96px;
   color-scheme: light;
 }
 
 html,body{height:100%;}
-html{scroll-padding-top:90px;}
+html{scroll-padding-top:var(--cnb-nav-height);}
 body{
   color:var(--cnb-ink);
   background:linear-gradient(180deg,#ffffff 0%, #ffffff 50%, var(--cnb-soft) 100%);
 }
 
-.main-content{padding-top:72px;}
+.main-content{padding-top:var(--cnb-nav-height);}
+
+/*
+ * Site-wide typography inside <main> (matches homepage: Montserrat body + Playfair headings + blue slate palette).
+ * Excludes hero headline (.home-banner__headline) so home banner stays white on blue.
+ */
+.main-content{
+  font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+.main-content h1:not(.home-banner__headline),
+.main-content .h1:not(.home-banner__headline),
+.main-content h2,
+.main-content .h2,
+.main-content h3,
+.main-content .h3,
+.main-content h4,
+.main-content .h4,
+.main-content h5,
+.main-content .h5,
+.main-content h6,
+.main-content .h6{
+  font-family: "Playfair Display", Georgia, "Times New Roman", Times, serif;
+  font-weight: 600;
+  color: var(--cnb-blue);
+  letter-spacing: -.01em;
+}
+
+.main-content .display-1,
+.main-content .display-2,
+.main-content .display-3,
+.main-content .display-4,
+.main-content .display-5,
+.main-content .display-6{
+  font-family: "Playfair Display", Georgia, "Times New Roman", Times, serif;
+  color: var(--cnb-blue);
+}
+
+.main-content p,
+.main-content li,
+.main-content .lead,
+.main-content .content{
+  font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+.main-content .text-muted{
+  color: rgba(47, 95, 150, .68) !important;
+}
+
+.main-content .lead{
+  color: rgba(47, 95, 150, .82);
+  font-weight: 500;
+}
+
+.main-content a:not(.btn):not(.nav-link):not(.dropdown-item):not(.page-link):not(.breadcrumb a){
+  color: var(--cnb-blue);
+}
+
+.main-content a:not(.btn):not(.nav-link):not(.dropdown-item):not(.page-link):not(.breadcrumb a):hover{
+  color: #244a76;
+}
+
+.main-content .card{
+  border-color: rgba(47,95,150,.16);
+}
+
+.main-content .card-title{
+  font-family: "Playfair Display", Georgia, "Times New Roman", Times, serif;
+  color: var(--cnb-blue);
+}
+
+.main-content .form-label{
+  font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-weight: 600;
+  color: rgba(47, 95, 150, .88);
+}
+
+.main-content .form-control,
+.main-content .form-select,
+.main-content .form-check-label{
+  font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+.main-content .form-control,
+.main-content .form-select{
+  border-color: rgba(47,95,150,.22);
+}
+
+.main-content .table{
+  --bs-table-color: rgba(47, 95, 150, .92);
+}
+
+.main-content .modal-title{
+  font-family: "Playfair Display", Georgia, "Times New Roman", Times, serif;
+  color: var(--cnb-blue);
+}
+
+.main-content .alert{
+  font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+.main-content .breadcrumb--cnb{
+  font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+.main-content .breadcrumb--cnb a{
+  color: rgba(47, 95, 150, .62);
+}
+.main-content .breadcrumb--cnb .active{
+  color: var(--cnb-blue);
+}
+
+/* Article / rich text inside pages */
+.main-content .prose{
+  color: rgba(47, 95, 150, .88);
+}
+
+.main-content .prose h2,
+.main-content .prose h3,
+.main-content .prose h4{
+  font-family: "Playfair Display", Georgia, "Times New Roman", Times, serif;
+  color: var(--cnb-blue);
+}
+
+/* Shared typography (for consistent section headings) */
+.cnb-kicker{
+  font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color:var(--cnb-gold);
+  text-transform: uppercase;
+  letter-spacing: .32em;
+  font-weight: 600;
+  font-size: .72rem;
+}
+.cnb-rule{
+  width: 44px;
+  height: 3px;
+  background:var(--cnb-gold);
+  margin-top: 12px;
+}
+.cnb-title{
+  margin-top: 22px;
+  font-family: "Playfair Display", Georgia, "Times New Roman", Times, serif;
+  font-weight: 600;
+  color:var(--cnb-blue);
+  letter-spacing: -.01em;
+  line-height: 1.15;
+}
+.cnb-title--lg{font-size: 34px;}
+.cnb-title--md{font-size: 26px;}
+.cnb-lede{
+  margin-top: 10px;
+  font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color: rgba(47, 95, 150, .72);
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 1.8;
+  max-width: 80ch;
+}
 
 /* Fixed navbar anchor offset */
-section[id]{scroll-margin-top:90px;}
-#multifaceted-hub{scroll-margin-top:90px;}
+section[id]{scroll-margin-top:var(--cnb-nav-height);}
+#multifaceted-hub{scroll-margin-top:var(--cnb-nav-height);}
 
 /* Mobile navbar: keep toggler on same line */
 .navbar .container{
@@ -27,6 +187,10 @@ section[id]{scroll-margin-top:90px;}
 }
 .navbar-brand{
   max-width: calc(100% - 64px);
+}
+.navbar-nav .nav-link{
+  letter-spacing:.02em;
+  font-weight:700;
 }
 .brand-title{
   white-space:nowrap;
@@ -43,6 +207,10 @@ section[id]{scroll-margin-top:90px;}
 }
 
 .navbar{
+  min-height: var(--cnb-nav-height);
+}
+
+.navbar{
   transition: transform .18s ease, box-shadow .18s ease;
   will-change: transform;
 }
@@ -55,13 +223,150 @@ section[id]{scroll-margin-top:90px;}
   color:var(--cnb-red);
   font-style:italic;
 }
-.brand-logo{
-  width:38px;
-  height:38px;
-  border-radius:10px;
-  border:1px solid rgba(17,24,39,.08);
-  background:transparent;
+.navbar-logo{
+  display:block;
+  height:96px;
+  width:auto;
   object-fit:contain;
+}
+
+/* Footer (matches provided design) */
+.footer-cnb{
+  background:#406EA7;
+  color:#fff;
+  margin-top: 56px;
+}
+.footer-cnb__inner{
+  padding: 56px 0 34px;
+}
+.footer-cnb__kicker{
+  font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color: rgba(255,255,255,.50);
+  text-transform: uppercase;
+  letter-spacing: .32em;
+  font-weight: 600;
+  font-size: .70rem;
+}
+.footer-cnb__title{
+  margin-top: 14px;
+  font-family: "Playfair Display", Georgia, "Times New Roman", Times, serif;
+  font-weight: 500;
+  color: rgba(255,255,255,.94);
+  font-size: 40px;
+  line-height: 1.18;
+  letter-spacing: .01em;
+}
+.footer-cnb__grid{
+  margin-top: 34px !important;
+}
+.footer-cnb__label{
+  font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color: rgba(199,155,58,.92);
+  text-transform: uppercase;
+  letter-spacing: .32em;
+  font-weight: 700;
+  font-size: .64rem;
+  margin-bottom: 10px;
+}
+.footer-cnb__value{
+  font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color: rgba(255,255,255,.80);
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 1.9;
+}
+.footer-cnb__link{
+  color: rgba(255,255,255,.86);
+  text-decoration: none;
+}
+.footer-cnb__link:hover{
+  color:#fff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.footer-cnb__divider{
+  height: 1px;
+  background: rgba(255,255,255,.10);
+  margin-top: 30px;
+}
+.footer-cnb__services{
+  margin-top: 18px;
+}
+.footer-cnb__services-kicker{
+  font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color: rgba(255,255,255,.42);
+  text-transform: uppercase;
+  letter-spacing: .32em;
+  font-weight: 600;
+  font-size: .62rem;
+}
+.footer-cnb__services-list{
+  margin-top: 10px;
+  font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color: rgba(255,255,255,.72);
+  font-weight: 500;
+  font-size: 12px;
+  display:flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.footer-cnb__dot{
+  color: rgba(199,155,58,.92);
+}
+
+.footer-cnb__bar{
+  background:#b8933b;
+  margin-top: 22px;
+}
+.footer-cnb__bar-inner{
+  min-height: 52px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 16px;
+}
+.footer-cnb__bar-left,
+.footer-cnb__bar-center,
+.footer-cnb__bar-right{
+  font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+  color:#2f5f96;
+  font-size: .70rem;
+}
+.footer-cnb__bar-left{
+  letter-spacing: .18em;
+}
+.footer-cnb__bar-center{
+  letter-spacing: .34em;
+  font-weight: 600;
+  text-align:center;
+  flex: 1 1 auto;
+  opacity: .9;
+}
+.footer-cnb__bar-right{
+  letter-spacing: .08em;
+}
+.footer-cnb__bar-link{
+  color:#2f5f96;
+  text-decoration:none;
+}
+.footer-cnb__bar-link:hover{
+  text-decoration:underline;
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 575px){
+  .footer-cnb__inner{padding: 44px 0 28px;}
+  .footer-cnb__title{font-size: 32px;}
+  .footer-cnb__bar-inner{
+    min-height: 56px;
+    flex-direction: column;
+    justify-content:center;
+    padding: 10px 0;
+    gap: 6px;
+  }
+  .footer-cnb__bar-center{letter-spacing: .22em;}
 }
 
 .btn-cnb{
@@ -94,6 +399,999 @@ section[id]{scroll-margin-top:90px;}
 
 .hero-carousel{
   margin-top:0;
+}
+
+.home-banner{
+  background:#406EA7;
+  width:100%;
+  /* 6 inches ≈ 576px at 96 DPI (CSS px). */
+  height:576px;
+}
+
+.home-banner__inner{
+  height:100%;
+  padding-top: 42px;
+  padding-bottom: 56px;
+  display:flex;
+  flex-direction:column;
+  position: relative;
+}
+
+.home-banner__topline{
+  font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color: rgba(255,255,255,.42);
+  text-transform: uppercase;
+  letter-spacing: .36em;
+  font-weight: 500;
+  font-size: .78rem;
+  line-height: 1.2;
+}
+
+.home-banner__brand{
+  margin-top: 44px;
+}
+
+.home-banner__mark{
+  font-family: "Playfair Display", Georgia, "Times New Roman", Times, serif;
+  font-weight: 600;
+  letter-spacing: .02em;
+  font-size: 92px;
+  line-height: 1;
+  color: rgba(255,255,255,.92);
+}
+.home-banner__mark .home-banner__n{
+  color: #d0a442; /* warm gold */
+}
+
+.home-banner__submark{
+  margin-top: 12px;
+  font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color: rgba(255,255,255,.48);
+  text-transform: uppercase;
+  letter-spacing: .32em;
+  font-weight: 500;
+  font-size: .92rem;
+}
+
+.home-banner__rule{
+  width: 58px;
+  height: 3px;
+  background: #d0a442;
+  margin-top: 56px;
+}
+
+.home-banner__headline{
+  margin-top: 40px;
+  font-family: "Playfair Display", Georgia, "Times New Roman", Times, serif;
+  font-weight: 500;
+  color: rgba(255,255,255,.92);
+  font-size: 44px;
+  line-height: 1.25;
+  letter-spacing: .01em;
+}
+
+.home-banner__lede{
+  margin-top: auto;
+  font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color: rgba(255,255,255,.55);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.home-banner__badge{
+  position:absolute;
+  right: 18px;
+  bottom: 18px;
+  width: 140px;
+  height: 168px;
+  border: 0;
+  border-radius: 0;
+  background: rgba(255,255,255,.02);
+  backdrop-filter: blur(1px);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding: 14px 12px;
+}
+.home-banner__badge::before{
+  content:"";
+  position:absolute;
+  inset: 0;
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:contain;
+  /* Curved “badge” frame to match provided image */
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 140 168'%3E%3Cpath d='M24 12C41 6 55 5 70 5s29 1 46 7c10 3 16 12 16 24v70c0 14-6 25-15 32-14 10-28 18-47 19-19-1-33-9-47-19C14 131 8 120 8 106V36c0-12 6-21 16-24Z' fill='none' stroke='rgba(255,255,255,0.18)' stroke-width='2'/%3E%3C/svg%3E");
+  pointer-events:none;
+}
+.home-banner__badge-inner{
+  text-align:center;
+}
+.home-banner__badge-num{
+  font-family: "Playfair Display", Georgia, "Times New Roman", Times, serif;
+  font-weight: 600;
+  font-size: 46px;
+  line-height: 1;
+  color:#d0a442;
+  letter-spacing: .02em;
+}
+.home-banner__badge-text{
+  margin-top: 8px;
+  font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color: rgba(255,255,255,.52);
+  text-transform: uppercase;
+  letter-spacing: .22em;
+  font-weight: 600;
+  font-size: .60rem;
+  line-height: 1.25;
+}
+
+@media (max-width: 991px){
+  .home-banner{height:520px;}
+  .home-banner__topline{letter-spacing: .28em;}
+  .home-banner__mark{font-size: 78px;}
+  .home-banner__submark{letter-spacing: .26em; font-size: .86rem;}
+  .home-banner__headline{font-size: 40px;}
+}
+@media (max-width: 575px){
+  .home-banner{height:auto; min-height:560px;}
+  .home-banner__inner{padding-top: 34px; padding-bottom: 40px;}
+  .home-banner__brand{margin-top: 32px;}
+  .home-banner__topline{letter-spacing: .18em; font-size: .72rem;}
+  .home-banner__mark{font-size: 64px;}
+  .home-banner__submark{letter-spacing: .18em; font-size: .82rem;}
+  .home-banner__rule{margin-top: 42px;}
+  .home-banner__headline{font-size: 34px;}
+  .home-banner__lede{font-size: 13px; margin-top: 18px;}
+  .home-banner__badge{
+    position: static;
+    margin-top: 18px;
+    margin-left: auto;
+    width: 120px;
+    height: 150px;
+  }
+  .home-banner__badge-num{font-size: 40px;}
+}
+
+/* Purpose section (below hero) */
+.purpose-section{
+  background:#ffffff;
+  padding: 52px 0 46px;
+}
+.purpose__kicker{
+  font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color:#c79b3a;
+  text-transform: uppercase;
+  letter-spacing: .32em;
+  font-weight: 600;
+  font-size: .72rem;
+}
+.purpose__title{
+  margin-top: 10px;
+  font-family: "Playfair Display", Georgia, "Times New Roman", Times, serif;
+  font-weight: 600;
+  color:#2f5f96;
+  font-size: 44px;
+  line-height: 1.08;
+  letter-spacing: -.01em;
+}
+.purpose__rule{
+  width: 44px;
+  height: 3px;
+  background:#c79b3a;
+  margin-top: 18px;
+}
+.purpose__rule--sm{margin-top: 14px;}
+
+.purpose-card{
+  background:#e8f1fb;
+  border-left: 4px solid #2f5f96;
+  padding: 22px 22px 22px 22px;
+  min-height: 168px;
+}
+.purpose-card__label{
+  font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color:#2f5f96;
+  text-transform: uppercase;
+  letter-spacing: .32em;
+  font-weight: 600;
+  font-size: .72rem;
+  margin-bottom: 10px;
+}
+.purpose-card__body{
+  font-family: "Playfair Display", Georgia, "Times New Roman", Times, serif;
+  color:#2f5f96;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.55;
+}
+
+.purpose-work__title{
+  margin: 0;
+  font-family: "Playfair Display", Georgia, "Times New Roman", Times, serif;
+  font-weight: 600;
+  color:#2f5f96;
+  font-size: 26px;
+}
+.purpose-work__list{
+  border-top: 2px solid rgba(47,95,150,.16);
+}
+.purpose-work__item{
+  position: relative;
+  padding: 12px 10px 12px 26px;
+  border-bottom: 2px solid rgba(47,95,150,.16);
+  font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  font-weight: 600;
+  font-size: .72rem;
+  color:#2f5f96;
+}
+.purpose-work__item::before{
+  content:"";
+  position:absolute;
+  left: 10px;
+  top: 50%;
+  width: 7px;
+  height: 7px;
+  transform: translateY(-50%);
+  border-radius: 999px;
+  background:#c79b3a;
+}
+.purpose-work__item--spacer{
+  visibility:hidden;
+}
+@media (max-width: 575px){
+  .purpose-section{padding: 40px 0 36px;}
+  .purpose__title{font-size: 38px;}
+  .purpose-card__body{font-size: 17px;}
+}
+
+/* Who we are section */
+.who-section{
+  background:#ffffff;
+  padding: 56px 0 44px;
+}
+.who__kicker{
+  font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color:#c79b3a;
+  text-transform: uppercase;
+  letter-spacing: .32em;
+  font-weight: 600;
+  font-size: .72rem;
+}
+.who__title{
+  margin-top: 10px;
+  font-family: "Playfair Display", Georgia, "Times New Roman", Times, serif;
+  font-weight: 600;
+  color:#2f5f96;
+  font-size: 44px;
+  line-height: 1.08;
+  letter-spacing: -.01em;
+}
+.who__rule{
+  width: 44px;
+  height: 3px;
+  background:#c79b3a;
+  margin-top: 18px;
+}
+.who__prose{
+  margin-top: 18px;
+  font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color: rgba(47, 95, 150, .80);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.8;
+  max-width: 58ch;
+}
+.who__prose p{margin: 0 0 14px;}
+
+.who-stats{
+  display:flex;
+  flex-direction:column;
+  gap: 18px;
+}
+.who-stat{
+  border: 1px solid rgba(47,95,150,.25);
+  background:#fff;
+  padding: 22px 18px;
+  text-align:center;
+}
+.who-stat__value{
+  font-family: "Playfair Display", Georgia, "Times New Roman", Times, serif;
+  color:#2f5f96;
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 1;
+}
+.who-stat__plus{font-size: .82em;}
+.who-stat__label{
+  margin-top: 10px;
+  font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color: rgba(47, 95, 150, .72);
+  text-transform: uppercase;
+  letter-spacing: .22em;
+  font-weight: 600;
+  font-size: .70rem;
+  line-height: 1.5;
+}
+
+.who-banners{
+  border: 1px solid rgba(47,95,150,.0);
+}
+.who-banner{
+  background:#406EA7;
+  color:#fff;
+  padding: 22px 22px;
+  height: 100%;
+}
+.who-banner--quote{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  min-height: 124px;
+}
+.who-banner__quote{
+  font-family: "Playfair Display", Georgia, "Times New Roman", Times, serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.55;
+  color: rgba(255,255,255,.92);
+}
+.who-banner__byline{
+  margin-top: 12px;
+  font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color: rgba(199,155,58,.92);
+  text-transform: uppercase;
+  letter-spacing: .28em;
+  font-weight: 600;
+  font-size: .66rem;
+}
+.who-banner--gaa{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  min-height: 124px;
+  text-align:center;
+}
+.who-banner__gaa{
+  font-family: "Playfair Display", Georgia, "Times New Roman", Times, serif;
+  color: #d0a442;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 1;
+  letter-spacing: .02em;
+}
+.who-banner__gaa-sub{
+  margin-top: 10px;
+  font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color: rgba(255,255,255,.70);
+  text-transform: uppercase;
+  letter-spacing: .30em;
+  font-weight: 600;
+  font-size: .66rem;
+}
+.who-banner__gaa-sub--muted{
+  margin-top: 6px;
+  color: rgba(255,255,255,.55);
+}
+
+@media (max-width: 575px){
+  .who-section{padding: 44px 0 34px;}
+  .who__title{font-size: 38px;}
+  .who-stat__value{font-size: 44px;}
+}
+
+/* Our five roles section */
+.roles-section{
+  background:#ffffff;
+  padding: 56px 0 44px;
+}
+.roles__kicker{
+  font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color:#c79b3a;
+  text-transform: uppercase;
+  letter-spacing: .32em;
+  font-weight: 600;
+  font-size: .72rem;
+}
+.roles__title{
+  margin-top: 10px;
+  font-family: "Playfair Display", Georgia, "Times New Roman", Times, serif;
+  font-weight: 600;
+  color:#2f5f96;
+  font-size: 44px;
+  line-height: 1.08;
+  letter-spacing: -.01em;
+}
+.roles__rule{
+  width: 44px;
+  height: 3px;
+  background:#c79b3a;
+  margin-top: 18px;
+}
+
+.role-card{
+  position: relative;
+  background:#fff;
+  border: 1px solid rgba(47,95,150,.22);
+  padding: 26px 24px 24px;
+  min-height: 190px;
+  overflow:hidden;
+}
+.role-card--blue{ border-top: 4px solid #2f5f96; }
+.role-card--gold{ border-top: 4px solid #c79b3a; }
+
+.role-card__num{
+  position:absolute;
+  top: 18px;
+  left: 20px;
+  font-family: "Playfair Display", Georgia, "Times New Roman", Times, serif;
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 1;
+  color: rgba(47,95,150,.15);
+}
+.role-card__kicker{
+  margin-left: 2px;
+  padding-left: 0;
+  margin-top: 18px;
+  font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color:#c79b3a;
+  text-transform: uppercase;
+  letter-spacing: .32em;
+  font-weight: 600;
+  font-size: .66rem;
+}
+.role-card__title{
+  margin-top: 8px;
+  font-family: "Playfair Display", Georgia, "Times New Roman", Times, serif;
+  color:#2f5f96;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.25;
+}
+.role-card__body{
+  margin-top: 10px;
+  font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color: rgba(47, 95, 150, .78);
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 1.7;
+  max-width: 60ch;
+}
+
+.role-card--wide{
+  min-height: 150px;
+  display:grid;
+  grid-template-columns: 1.1fr 1fr;
+  align-items:center;
+  column-gap: 24px;
+}
+.role-card--wide .role-card__num{
+  top: 18px;
+  left: 22px;
+}
+.role-card__wide-body{
+  font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color: rgba(47, 95, 150, .78);
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 1.75;
+}
+
+@media (max-width: 991px){
+  .role-card--wide{
+    grid-template-columns: 1fr;
+    row-gap: 12px;
+  }
+}
+@media (max-width: 575px){
+  .roles-section{padding: 44px 0 34px;}
+  .roles__title{font-size: 38px;}
+}
+
+/* Built for LGUs section */
+.lgu-section{
+  background:#ffffff;
+  padding: 56px 0 54px;
+}
+.lgu__kicker{
+  font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color:#c79b3a;
+  text-transform: uppercase;
+  letter-spacing: .32em;
+  font-weight: 600;
+  font-size: .72rem;
+}
+.lgu__title{
+  margin-top: 10px;
+  font-family: "Playfair Display", Georgia, "Times New Roman", Times, serif;
+  font-weight: 600;
+  color:#2f5f96;
+  font-size: 44px;
+  line-height: 1.08;
+  letter-spacing: -.01em;
+}
+.lgu__rule{
+  width: 44px;
+  height: 3px;
+  background:#c79b3a;
+  margin-top: 18px;
+}
+.lgu__lede{
+  margin-top: 18px;
+  font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color: rgba(47, 95, 150, .78);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.85;
+  max-width: 92ch;
+}
+.lgu-grid{margin-top: 24px;}
+
+.lgu-block__title{
+  font-family: "Playfair Display", Georgia, "Times New Roman", Times, serif;
+  color:#2f5f96;
+  font-weight: 600;
+  font-size: 18px;
+}
+.lgu-block__rule{
+  height: 2px;
+  background: rgba(47,95,150,.18);
+  margin-top: 10px;
+}
+.lgu-list{
+  list-style:none;
+  padding-left: 0;
+  margin: 12px 0 0;
+  display:flex;
+  flex-direction:column;
+  gap: 10px;
+  font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color: rgba(47, 95, 150, .78);
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 1.7;
+}
+.lgu-list li{
+  position: relative;
+  padding-left: 18px;
+}
+.lgu-list li::before{
+  content:"—";
+  position:absolute;
+  left: 0;
+  top: 0;
+  color:#c79b3a;
+  font-weight: 700;
+}
+
+.lgu-benefits{
+  background:#406EA7;
+  padding: 28px 26px;
+}
+.lgu-benefits__title{
+  font-family: "Playfair Display", Georgia, "Times New Roman", Times, serif;
+  color: rgba(208,164,66,.95);
+  font-weight: 600;
+  font-size: 18px;
+}
+.lgu-benefits__item{
+  position: relative;
+  padding-left: 44px;
+  font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color: rgba(255,255,255,.78);
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 1.55;
+  margin-top: 10px;
+}
+.lgu-benefits__item::before{
+  content:"✓";
+  position:absolute;
+  left: 0;
+  top: 0;
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  background:#c79b3a;
+  color:#406EA7;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight: 900;
+}
+
+@media (max-width: 575px){
+  .lgu-section{padding: 44px 0 44px;}
+  .lgu__title{font-size: 38px;}
+  .lgu-benefits{padding: 24px 18px;}
+}
+
+/* Knowledge materials section */
+.km-section{
+  background:#ffffff;
+  padding: 56px 0 54px;
+}
+.km__kicker{
+  font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color:#c79b3a;
+  text-transform: uppercase;
+  letter-spacing: .32em;
+  font-weight: 600;
+  font-size: .72rem;
+}
+.km__title{
+  margin-top: 10px;
+  font-family: "Playfair Display", Georgia, "Times New Roman", Times, serif;
+  font-weight: 600;
+  color:#2f5f96;
+  font-size: 44px;
+  line-height: 1.08;
+  letter-spacing: -.01em;
+}
+.km__rule{
+  width: 44px;
+  height: 3px;
+  background:#c79b3a;
+  margin-top: 18px;
+}
+.km__lede{
+  margin-top: 18px;
+  font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color: rgba(47, 95, 150, .78);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.85;
+  max-width: 72ch;
+}
+
+.km-card{
+  border: 1px solid rgba(47,95,150,.22);
+  background:#fff;
+  height:100%;
+  display:flex;
+  flex-direction:column;
+}
+.km-card__head{
+  padding: 18px 18px 16px;
+  min-height: 118px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+.km-card__head--navy{ background:#2c4f7b; }
+.km-card__head--gold{ background:#b8933b; }
+.km-card__head--sky{ background:#5f8fbe; }
+
+.km-card__kicker{
+  font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color: rgba(255,255,255,.55);
+  text-transform: uppercase;
+  letter-spacing: .32em;
+  font-weight: 600;
+  font-size: .62rem;
+}
+.km-card__title{
+  margin-top: 10px;
+  font-family: "Playfair Display", Georgia, "Times New Roman", Times, serif;
+  color: rgba(255,255,255,.92);
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.2;
+}
+.km-card__title--dark{ color: rgba(47,95,150,.92); }
+.km-card__body{
+  padding: 18px 18px 18px;
+  font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color: rgba(47, 95, 150, .78);
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 1.75;
+  flex:1 1 auto;
+}
+.km-card__tag{
+  margin-top: 14px;
+  display:inline-block;
+  padding: 6px 10px;
+  border: 1px solid rgba(47,95,150,.35);
+  color: rgba(47,95,150,.72);
+  text-transform: uppercase;
+  letter-spacing: .24em;
+  font-weight: 600;
+  font-size: .62rem;
+}
+
+.km-callout{
+  background:#e8f1fb;
+  border-left: 4px solid #2f5f96;
+  padding: 22px 22px;
+}
+.km-callout__kicker{
+  font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color:#c79b3a;
+  text-transform: uppercase;
+  letter-spacing: .32em;
+  font-weight: 600;
+  font-size: .66rem;
+}
+.km-callout__title{
+  margin-top: 10px;
+  font-family: "Playfair Display", Georgia, "Times New Roman", Times, serif;
+  color:#2f5f96;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.25;
+}
+.km-callout__body{
+  margin-top: 8px;
+  font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color: rgba(47, 95, 150, .78);
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 1.75;
+}
+
+.km-quote{
+  background:#e8f1fb;
+  border-left: 4px solid #2f5f96;
+  padding: 30px 28px;
+}
+.km-quote__title{
+  font-family: "Playfair Display", Georgia, "Times New Roman", Times, serif;
+  color:#2f5f96;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 1.18;
+}
+.km-quote__body{
+  margin-top: 16px;
+  font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color: rgba(47, 95, 150, .78);
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 1.85;
+  max-width: 100ch;
+}
+
+@media (max-width: 575px){
+  .km-section{padding: 44px 0 44px;}
+  .km__title{font-size: 38px;}
+  .km-quote{padding: 24px 18px;}
+  .km-quote__title{font-size: 28px;}
+}
+
+/* Core principles section */
+.principles-section{
+  background:#ffffff;
+  padding: 56px 0 54px;
+}
+.principles__kicker{
+  font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color:#c79b3a;
+  text-transform: uppercase;
+  letter-spacing: .32em;
+  font-weight: 600;
+  font-size: .72rem;
+}
+
+.principle-card{
+  border: 1px solid rgba(47,95,150,.22);
+  background:#fff;
+  padding: 22px 18px;
+  text-align:center;
+  height: 100%;
+}
+.principle-card__title{
+  font-family: "Playfair Display", Georgia, "Times New Roman", Times, serif;
+  color:#2f5f96;
+  font-weight: 600;
+  font-size: 18px;
+}
+.principle-card__rule{
+  width: 22px;
+  height: 2px;
+  background:#c79b3a;
+  margin: 12px auto 0;
+}
+.principle-card__body{
+  margin-top: 14px;
+  font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color: rgba(47, 95, 150, .70);
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.principles-panel{
+  background:#406EA7;
+  padding: 26px 26px;
+}
+.principles-panel__title{
+  font-family: "Playfair Display", Georgia, "Times New Roman", Times, serif;
+  color: rgba(255,255,255,.92);
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.35;
+}
+.principles-panel__body{
+  margin-top: 14px;
+  font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color: rgba(255,255,255,.78);
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 1.85;
+  max-width: 68ch;
+}
+.principles-panel__side{
+  display:flex;
+  flex-direction:column;
+  gap: 16px;
+}
+.principles-panel__item{
+  position: relative;
+  padding-left: 22px;
+}
+.principles-panel__item::before{
+  content:"";
+  position:absolute;
+  left: 0;
+  top: 3px;
+  width: 2px;
+  height: calc(100% - 6px);
+  background:#c79b3a;
+}
+.principles-panel__tag{
+  font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color: rgba(199,155,58,.92);
+  text-transform: uppercase;
+  letter-spacing: .32em;
+  font-weight: 600;
+  font-size: .62rem;
+}
+.principles-panel__text{
+  margin-top: 8px;
+  font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color: rgba(255,255,255,.78);
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 1.75;
+}
+
+@media (max-width: 575px){
+  .principles-section{padding: 44px 0 44px;}
+  .principles-panel{padding: 22px 18px;}
+}
+
+/* Leadership section */
+.leadership-section{
+  background:#ffffff;
+  padding: 56px 0 54px;
+}
+.leadership__kicker{
+  font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color:#c79b3a;
+  text-transform: uppercase;
+  letter-spacing: .32em;
+  font-weight: 600;
+  font-size: .72rem;
+}
+.leadership__rule{
+  width: 44px;
+  height: 3px;
+  background:#c79b3a;
+  margin-top: 12px;
+}
+.leadership__rule--after{margin-top: 14px;}
+
+.leadership__name{
+  margin-top: 26px;
+  font-family: "Playfair Display", Georgia, "Times New Roman", Times, serif;
+  font-weight: 600;
+  color:#2f5f96;
+  font-size: 34px;
+  line-height: 1.15;
+  letter-spacing: -.01em;
+}
+.leadership__meta{
+  margin-top: 6px;
+  font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color: rgba(47, 95, 150, .62);
+  text-transform: uppercase;
+  letter-spacing: .22em;
+  font-weight: 600;
+  font-size: .66rem;
+}
+.leadership__prose{
+  margin-top: 16px;
+  font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color: rgba(47, 95, 150, .78);
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 1.9;
+  max-width: 74ch;
+}
+.leadership__prose p{margin: 0 0 14px;}
+
+.leadership__expertise{
+  margin-top: 22px;
+}
+.leadership__expertise-kicker{
+  font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color: rgba(47, 95, 150, .60);
+  text-transform: uppercase;
+  letter-spacing: .32em;
+  font-weight: 600;
+  font-size: .62rem;
+}
+.leadership__expertise-list{
+  margin: 12px 0 0;
+  padding-left: 0;
+  list-style: none;
+  display:flex;
+  flex-direction:column;
+  gap: 10px;
+  font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color: rgba(47, 95, 150, .78);
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 1.7;
+}
+.leadership__expertise-list li{
+  position: relative;
+  padding-left: 18px;
+}
+.leadership__expertise-list li::before{
+  content:"›";
+  position:absolute;
+  left: 0;
+  top: 0;
+  color:#c79b3a;
+  font-weight: 800;
+}
+
+.leadership__photo{
+  border-top: 4px solid #2f5f96;
+  background: transparent;
+}
+.leadership__photo img{
+  display:block;
+  width:100%;
+  height:auto;
+}
+
+.leadership__timeline{
+  margin-top: 14px;
+  display:flex;
+  flex-direction:column;
+  gap: 12px;
+}
+.leadership__milestone{
+  background:#e8f1fb;
+  border-left: 4px solid #2f5f96;
+  padding: 16px 16px;
+}
+.leadership__milestone-year{
+  font-family: "Playfair Display", Georgia, "Times New Roman", Times, serif;
+  color:#2f5f96;
+  font-weight: 600;
+  font-size: 14px;
+}
+.leadership__milestone-role{
+  margin-top: 4px;
+  font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color: rgba(47, 95, 150, .70);
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+@media (max-width: 575px){
+  .leadership-section{padding: 44px 0 44px;}
+  .leadership__name{font-size: 30px;}
 }
 
 .breadcrumb-bar{
@@ -339,7 +1637,212 @@ section[id]{scroll-margin-top:90px;}
 .section{padding:3rem 0;}
 .section-muted{background:rgba(17,24,39,.03);}
 .whatdo-section{
+  background:#ffffff;
+  padding: 56px 0 54px;
+}
+.whatdo__kicker{
+  font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color:#c79b3a;
+  text-transform: uppercase;
+  letter-spacing: .32em;
+  font-weight: 600;
+  font-size: .72rem;
+}
+.whatdo__rule{
+  width: 44px;
+  height: 3px;
+  background:#c79b3a;
+  margin-top: 12px;
+}
+.whatdo__title{
+  margin-top: 22px;
+  font-family: "Playfair Display", Georgia, "Times New Roman", Times, serif;
+  font-weight: 600;
+  color:#2f5f96;
+  font-size: 34px;
+  line-height: 1.15;
+  letter-spacing: -.01em;
+}
+.whatdo__lede{
+  margin-top: 10px;
+  font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color: rgba(47, 95, 150, .72);
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 1.8;
+  max-width: 72ch;
+}
+
+.whatdo-card2{
+  display:block;
+  border: 1px solid rgba(47,95,150,.22);
+  border-top: 4px solid #2f5f96;
   background:#fff;
+  border-radius: 0;
+  overflow:hidden;
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+.whatdo-card2:hover{
+  transform: translateY(-2px);
+  box-shadow:0 14px 34px rgba(17,24,39,.08);
+}
+.whatdo-card2__media{
+  background: #ffffff;
+  padding: 10px;
+}
+.whatdo-card2__img{
+  display:block;
+  width:100%;
+  height:auto;
+  object-fit: contain;
+}
+
+.whatdo-card2--center{
+  border-radius: 18px;
+  border: 1px solid rgba(47,95,150,.18);
+  border-top: 0;
+  background:#fff;
+}
+
+.whatdo-card2--research{
+  border-radius: 18px;
+  border: 1px solid rgba(47,95,150,.18);
+  border-top: 0;
+}
+.whatdo-research{
+  padding: 24px 22px 22px;
+  text-align:center;
+  --whatdo-research-text-width: 320px;
+}
+.whatdo-research__icon{
+  width: 140px;
+  height: 140px;
+  margin: 0 auto 16px;
+  border-radius: 999px;
+  border: 0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background: #fff;
+}
+.whatdo-research__icon-img{
+  width: 112px;
+  height: 112px;
+  object-fit: contain;
+  display:block;
+}
+.whatdo-research__title{
+  display:block;
+  width: var(--whatdo-research-text-width);
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 10px 18px;
+  background:#d86a55; /* preserve research theme color */
+  color:#fff;
+  font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: .10em;
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 1.05;
+  /* Slanted ribbon frame like other cards */
+  clip-path: polygon(4% 0%, 100% 0%, 96% 100%, 0% 100%);
+}
+.whatdo-research__body{
+  margin-top: 14px;
+  font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color: rgba(47, 95, 150, .82);
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 1.75;
+  max-width: var(--whatdo-research-text-width);
+  margin-left: auto;
+  margin-right: auto;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.whatdo-center{
+  padding: 24px 22px 22px;
+  text-align:center;
+  --whatdo-center-text-width: 320px;
+}
+.whatdo-center__icon{
+  width: 140px;
+  height: 140px;
+  margin: 0 auto 16px;
+  border-radius: 999px;
+  border: 0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background: #fff;
+}
+.whatdo-center__icon-img{
+  width: 112px;
+  height: 112px;
+  object-fit: contain;
+  display:block;
+}
+.whatdo-center__title{
+  display:block;
+  width: var(--whatdo-center-text-width);
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 10px 18px;
+  background:#2f5f96;
+  color:#fff;
+  font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: .10em;
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 1.05;
+  clip-path: polygon(4% 0%, 100% 0%, 96% 100%, 0% 100%);
+}
+.whatdo-center__body{
+  margin-top: 14px;
+  font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color: rgba(47, 95, 150, .82);
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 1.75;
+  max-width: var(--whatdo-center-text-width);
+  margin-left: auto;
+  margin-right: auto;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+/* Per-card theme colors (keep original “theme” feel) */
+.whatdo-card2--education .whatdo-center__title{ background:#87b54f; }
+.whatdo-card2--content .whatdo-center__title{ background:#55aeb2; }
+.whatdo-card2--publishing .whatdo-center__title{ background:#e08a2f; }
+.whatdo-card2--pmc .whatdo-center__title{ background:#8f8fc0; }
+
+/* Current publications section */
+.currentpub-section{
+  background:#ffffff;
+  padding: 56px 0 54px;
+}
+.currentpub-card{
+  border: 1px solid rgba(47,95,150,.22);
+  border-top: 4px solid #2f5f96;
+  background:#fff;
+  overflow:hidden;
+}
+.currentpub-card img{
+  display:block;
+  width:100%;
+  height:auto;
+}
+@media (max-width: 575px){
+  .currentpub-section{padding: 44px 0 44px;}
+}
+
+@media (max-width: 575px){
+  .whatdo-section{padding: 44px 0 44px;}
+  .whatdo__title{font-size: 30px;}
 }
 .welcome-section{
   background:#fff;
